@@ -1,0 +1,40 @@
+<form [formGroup]="userForm" class="grid">
+    <div class="col-6 field">
+        <mat-form-field class="w-full" appearance="outline">
+            <mat-label>Nombre</mat-label>
+            <input formControlName="name" matInput type="text" name="name">
+            <mat-error *ngIf="nameControl.invalid && nameControl.hasError('required')">
+                Completa el campo para continuar
+            </mat-error>
+        </mat-form-field>
+    </div>
+
+    <!-- podemos usar formControl o formControlName para enlazar el control al input-->
+
+    <div class="col-6 field">
+        <mat-form-field class="w-full" appearance="outline">
+            <mat-label>Apellido</mat-label>
+            <input formControlName="surname" matInput type="text" name="surname">
+        </mat-form-field>
+    </div>
+
+    <div class="col-6 field">
+        <mat-form-field class="w-full" appearance="outline">
+            <mat-label>email</mat-label>
+            <input formControlName="email" matInput type="email" name="email">
+        </mat-form-field>
+    </div>
+
+    <div class="col-6 field">
+        <mat-form-field class="w-full" appearance="outline">
+            <mat-label>Password</mat-label>
+            <input formControlName="password" matInput type="password" name="password">
+        </mat-form-field>
+    </div>
+</form>
+
+<pre>
+    {{userForm.value | json}}
+</pre>
+
+<!-- en material UI, ver Components: INPUT, -->
