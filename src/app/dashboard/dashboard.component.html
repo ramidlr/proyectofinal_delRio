@@ -3,27 +3,23 @@
 <!-- SIDEBAR MODULE IZQUIERDA-->
 <mat-drawer-container class="example-container" autosize>
     <mat-drawer #drawer class="example-sidenav" mode="side">
-      <p>Auto-resizing sidenav</p>
-      <p *ngIf="showFiller">Lorem, ipsum dolor sit amet consectetur.</p>
+
     </mat-drawer>
   
     <!-- TOOLBAR -->
 
     <mat-toolbar color="primary">
-        <button (click)="showFiller = !showFiller" mat-icon-button class="example-icon" aria-label="Example icon-button with menu icon">
+        <button (click)="drawer.toggle()" mat-icon-button class="example-icon" aria-label="Example icon-button with menu icon">
           <mat-icon>menu</mat-icon>
         </button>
-        <span>My App</span>
-        <span class="example-spacer"></span>
-        <button mat-icon-button class="example-icon favorite-icon" aria-label="Example icon-button with heart icon">
-          <mat-icon>favorite</mat-icon>
-        </button>
-        <button mat-icon-button class="example-icon" aria-label="Example icon-button with share icon">
-          <mat-icon>share</mat-icon>
-        </button>
-      </mat-toolbar>
+        <span>CodeCamp</span>       
+    </mat-toolbar>
 
     <!-- CONTENIDO -->
+     <main class="p-3">
+        <app-home>
 
-  <p>contenido general</p>
+        </app-home>
+    </main>
+
   </mat-drawer-container>
