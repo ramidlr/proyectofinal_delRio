@@ -20,4 +20,8 @@ passwordControl = new FormControl(null, [Validators.required, Validators.minLeng
     password: this.passwordControl,
   })
 
+  onSubmit(): void {
+    alert(JSON.stringify(this.userForm.value)) 
+  }
+
 }

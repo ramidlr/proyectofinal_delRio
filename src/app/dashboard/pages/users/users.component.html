@@ -3,8 +3,11 @@
         <mat-form-field class="w-full" appearance="outline">
             <mat-label>Nombre</mat-label>
             <input formControlName="name" matInput type="text" name="name">
-            <mat-error *ngIf="nameControl.invalid && nameControl.hasError('required')">
+            <mat-error *ngIf="nameControl.hasError('required')">
                 Completa el campo para continuar
+            </mat-error>
+            <mat-error *ngIf="nameControl.hasError('minlength')">
+                El nombre debe tener al menos {{nameControl.errors?.['minlength']?.requiredLength}} caracteres
             </mat-error>
         </mat-form-field>
     </div>
@@ -31,10 +34,15 @@
             <input formControlName="password" matInput type="password" name="password">
         </mat-form-field>
     </div>
+
+    <div class="col-12 flex justify-content-end">
+        <button mat-button (click)="onSubmit()">Confirmar</button>
+    </div>
+
 </form>
 
 <pre>
     {{userForm.value | json}}
 </pre>
 
-<!-- en material UI, ver Components: INPUT, -->
+<!-- en material UI, ver Components: INPUT, FORM LABEL-->
