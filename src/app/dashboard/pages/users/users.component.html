@@ -1,5 +1,10 @@
-<button (click)="onCreateUser()" mat-flat-button color="primary" type="button">
-    <mat-icon>add</mat-icon>
-    Crear Usuario
+<div class="mb-5">
+    <button (click)="onCreateUser()" mat-flat-button color="primary" type="button">
+        <mat-icon>add</mat-icon>
+        Crear Usuario
+    </button>
+</div>
 
-</button>
+<app-users-table [dataSource]="users">
+</app-users-table>
+

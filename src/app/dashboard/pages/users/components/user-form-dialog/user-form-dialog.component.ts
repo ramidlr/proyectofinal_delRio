@@ -10,7 +10,7 @@ import { MatDialogRef } from '@angular/material/dialog';
 export class UserFormDialogComponent {
 
 
-  nameControl = new FormControl(null, [Validators.required, Validators.minLength(3), this.noJuanValidator()]);
+nameControl = new FormControl(null, [Validators.required, Validators.minLength(3), this.noJuanValidator()]);
 surnameControl = new FormControl(null, [Validators.required, Validators.minLength(3)]);
 emailControl = new FormControl(null, [Validators.required, Validators.email]); 
 passwordControl = new FormControl(null, [Validators.required, Validators.minLength(8)]);
@@ -48,7 +48,10 @@ passwordControl = new FormControl(null, [Validators.required, Validators.minLeng
 
   onSubmit(): void {
     // alert(JSON.stringify(this.userForm.value)) 
-    if (this.userForm.invalid) {this.userForm.markAllAsTouched()}
-    this.dialogRef.close(this.userForm.value)
+    if (this.userForm.invalid) {
+      this.userForm.markAllAsTouched()
+    } else {
+      this.dialogRef.close(this.userForm.value)
+    }
   }
 }
