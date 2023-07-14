@@ -48,6 +48,7 @@ passwordControl = new FormControl(null, [Validators.required, Validators.minLeng
 
   onSubmit(): void {
     // alert(JSON.stringify(this.userForm.value)) 
+    if (this.userForm.invalid) {this.userForm.markAllAsTouched()}
     this.dialogRef.close(this.userForm.value)
   }
 }
