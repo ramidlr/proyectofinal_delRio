@@ -5,6 +5,8 @@
     </button>
 </div>
 
-<app-users-table [dataSource]="users">
+<app-users-table [dataSource]="users" 
+(deleteUser)="onDeleteUser($event)" 
+(editUser)="editUser($event)">
 </app-users-table>
 

@@ -1,11 +1,12 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, Output, EventEmitter } from '@angular/core';
 import { User } from '../../models/model';
 
-export interface PeriodicElement {
+export interface UserElement {
+  id: string,
   name: string;
-  position: number;
-  weight: number;
-  symbol: string;
+  surname: string;
+  email: string;
+  password: string;
 }
 
 @Component({
@@ -14,10 +15,14 @@ export interface PeriodicElement {
   styleUrls: ['./users-table.component.scss']
 })
 export class UsersTableComponent {
-  // displayedColumns: string[] = ['position', 'name', 'weight', 'symbol'];
-  displayedColumns: string[] = ['id', 'name', 'surname', 'email'];
+  displayedColumns: string[] = ['id', 'name', 'surname', 'email', 'edit', 'delete'];
 
   @Input()
   dataSource: User[] = [];
 
+  @Output()
+  deleteUser = new EventEmitter<User>();
+
+  @Output()
+  editUser = new EventEmitter<User>();
 }
