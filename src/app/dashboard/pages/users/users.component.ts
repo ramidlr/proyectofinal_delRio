@@ -5,24 +5,27 @@ import { User } from './models/model';
 
 const ELEMENT_DATA: User[] = [
   {
-    id: '909199281',
+    id: '90882735',
     name: 'Marcos',
-    surname: 'Z',
-    email: 'mail@hotmail.com',
+    surname: 'Barrenechea',
+    email: 'marcos32@hotmail.com',
+    course: 'Angular',
     password: '123456',
   },
   {
-    id: '38992912',
-    name: 'Marcos',
-    surname: 'Z',
-    email: 'mail@hotmail.com',
+    id: '38992781',
+    name: 'Pedro',
+    surname: 'Zabaleta',
+    email: 'zabaleta@gmail.com',
+    course: 'UX',
     password: '123456',
   },
   {
-    id: '22233131',
-    name: 'Marcos',
-    surname: 'Z',
-    email: 'mail@hotmail.com',
+    id: '40009087',
+    name: 'Jonathan',
+    surname: 'Gonzalez',
+    email: 'j_gonzalez90@hotmail.com',
+    course: 'React',
     password: '123456',
   },
 ];
@@ -48,6 +51,7 @@ export class UsersComponent {
               name: v.name,
               surname: v.surname,
               email: v.email,
+              course: v.course,
               password: v.password,
             },
           ];

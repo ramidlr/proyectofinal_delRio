@@ -9,6 +9,8 @@ import {
 } from '@angular/forms';
 import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
 import { User } from '../../models/model';
+import { ErrorStateMatcher } from '@angular/material/core';
+
 
 @Component({
   selector: 'app-user-form-dialog',
@@ -34,6 +36,8 @@ export class UserFormDialogComponent {
     Validators.required,
     Validators.email,
   ]);
+
+  courseControl = new FormControl(null, [Validators.required]);
   passwordControl = new FormControl<string | null>(null, [
     Validators.required,
     Validators.minLength(8),
@@ -44,8 +48,11 @@ export class UserFormDialogComponent {
     name: this.nameControl,
     surname: this.surnameControl,
     email: this.emailControl,
+    course: this.courseControl, 
     password: this.passwordControl,
   });
+
+  matcher = new ErrorStateMatcher();
 
   noJuanValidator(): ValidatorFn {
     return (control: AbstractControl): ValidationErrors | null => {
@@ -73,6 +80,7 @@ export class UserFormDialogComponent {
       this.nameControl.setValue(this.data.name);
       this.surnameControl.setValue(this.data.surname);
       this.emailControl.setValue(this.data.email);
+      this.courseControl.setValue(this.data.course)
       this.passwordControl.setValue(this.data.password);
     }
   }

@@ -1,12 +1,8 @@
 <div class="mb-5">
     <button (click)="onCreateUser()" mat-flat-button color="primary" type="button">
         <mat-icon>add</mat-icon>
-        Crear Usuario
     </button>
 </div>
 
-<app-users-table [dataSource]="users" 
-(deleteUser)="onDeleteUser($event)" 
-(editUser)="editUser($event)">
+<app-users-table [dataSource]="users" (deleteUser)="onDeleteUser($event)" (editUser)="editUser($event)">
 </app-users-table>
-

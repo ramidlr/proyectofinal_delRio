@@ -8,6 +8,7 @@ import {MatInputModule} from '@angular/material/input';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import { MatDialogModule } from '@angular/material/dialog';
 import {MatTableModule} from '@angular/material/table';
+import {MatSelectModule} from '@angular/material/select';
 
 
 @NgModule({
@@ -24,6 +25,7 @@ import {MatTableModule} from '@angular/material/table';
     MatFormFieldModule,
     MatDialogModule,
     MatTableModule,
+    MatSelectModule,
   ]
 })
 export class SharedModule { }

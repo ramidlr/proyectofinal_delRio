@@ -6,6 +6,7 @@ export interface UserElement {
   name: string;
   surname: string;
   email: string;
+  course: string;
   password: string;
 }
 
@@ -15,7 +16,7 @@ export interface UserElement {
   styleUrls: ['./users-table.component.scss']
 })
 export class UsersTableComponent {
-  displayedColumns: string[] = ['id', 'name', 'surname', 'email', 'edit', 'delete'];
+  displayedColumns: string[] = ['id', 'name', 'surname', 'email', 'course', 'edit', 'delete'];
 
   @Input()
   dataSource: User[] = [];

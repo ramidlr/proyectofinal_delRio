@@ -1,18 +1,26 @@
 
 
-<!-- SIDEBAR MODULE IZQUIERDA-->
-<mat-drawer-container class="example-container" autosize>
+<!-- MENU IZQUIERDA-->
+    <mat-drawer-container class="example-container" autosize>
     <mat-drawer #drawer class="example-sidenav" mode="side">
+      <ul>
+        <li>Link 1</li>
+        <li>Link 1</li>
+        <li>Link 1</li>
+        <li>Link 1</li>
+        <li>Link 1</li>
 
+      </ul>
     </mat-drawer>
   
-    <!-- TOOLBAR -->
+    <!-- MENU ARRIBA - TOOLBAR -->
 
-    <mat-toolbar color="primary">
-        <button (click)="drawer.toggle()" mat-icon-button class="example-icon" aria-label="Example icon-button with menu icon">
+    <mat-toolbar color="accent">
+        <button (click)="drawer.toggle()" mat-icon-button class="example-icon" aria-label="menu icon">
           <mat-icon>menu</mat-icon>
         </button>
-        <span>CodeCamp</span>       
+        <mat-icon aria-hidden="false" aria-label="Home" fontIcon="home" color="primary"></mat-icon>
+        <span>codecamp</span>       
     </mat-toolbar>
 
     <!-- CONTENIDO -->
