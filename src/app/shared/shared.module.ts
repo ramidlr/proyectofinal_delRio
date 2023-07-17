@@ -10,11 +10,13 @@ import { MatDialogModule } from '@angular/material/dialog';
 import {MatTableModule} from '@angular/material/table';
 import {MatSelectModule} from '@angular/material/select';
 import { FullNamePipe } from './pipes/full-name.pipe';
+import { LetragrandeDirective } from './directives/letragrande.directive';
 
 
 @NgModule({
   declarations: [
-    FullNamePipe
+    FullNamePipe,
+    LetragrandeDirective
   ],
   imports: [
     CommonModule,
@@ -30,6 +32,7 @@ import { FullNamePipe } from './pipes/full-name.pipe';
     MatTableModule,
     MatSelectModule,
     FullNamePipe,
+    LetragrandeDirective
   ]
 })
 export class SharedModule { }

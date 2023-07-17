@@ -61,7 +61,7 @@ export class UsersComponent {
   }
 
   onDeleteUser(userToDelete: User): void {
-    if (confirm('Confirma que deseas eliminar al alumno ${user.name}?'))
+    if (confirm('Estas seguro que deseas eliminar al alumno?')) 
       this.users = this.users.filter((u) => u.id !== userToDelete.id);
   }
 
