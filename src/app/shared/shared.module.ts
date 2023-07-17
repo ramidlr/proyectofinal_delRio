@@ -9,10 +9,13 @@ import {MatFormFieldModule} from '@angular/material/form-field';
 import { MatDialogModule } from '@angular/material/dialog';
 import {MatTableModule} from '@angular/material/table';
 import {MatSelectModule} from '@angular/material/select';
+import { FullNamePipe } from './pipes/full-name.pipe';
 
 
 @NgModule({
-  declarations: [],
+  declarations: [
+    FullNamePipe
+  ],
   imports: [
     CommonModule,
   ],
@@ -26,6 +29,7 @@ import {MatSelectModule} from '@angular/material/select';
     MatDialogModule,
     MatTableModule,
     MatSelectModule,
+    FullNamePipe,
   ]
 })
 export class SharedModule { }
