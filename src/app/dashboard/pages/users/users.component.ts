@@ -3,7 +3,6 @@ import { MatDialog } from '@angular/material/dialog';
 import { UserFormDialogComponent } from './components/user-form-dialog/user-form-dialog.component';
 import { User } from './models/model';
 import { UserService } from './user.service';
-import { Observable } from 'rxjs';
 
 // const ELEMENT_DATA: User[]
 @Component({
@@ -14,8 +13,8 @@ import { Observable } from 'rxjs';
 export class UsersComponent {
   public users: User[] = [];
 
-  constructor(private matDialog: MatDialog, private UserService: UserService) {
-    this.users = this.UserService.getUsers();
+  constructor(private matDialog: MatDialog, private userService: UserService) {
+    this.users = this.userService.getUsers();
   }
 
   onCreateUser(): void {
@@ -23,7 +22,7 @@ export class UsersComponent {
     dialogRef.afterClosed().subscribe({
       next: (v) => {
         if (v) {
-          this.UserService.createUser({
+          this.userService.createUser({
             id: v.id,
             name: v.name,
             surname: v.surname,
@@ -55,42 +54,4 @@ export class UsersComponent {
       },
     });
   }
-
-  //   //EJEMPLO DE PROMESA
-
-  //   const meDevuelveElDinero = new Promise((resolve, reject) => {
-  //     setTimeout(() => {
-  //       resolve(true)
-  //     }, 2000);
-  //   });
-
-  //   meDevuelveElDinero
-  //   .then((value) => console.log(value))
-  //   .catch ((error) => alert(error))
-  //   .finally(() => { });
-
-  // //EJEMPLO DE OSBERVABLE
-
-  // const semaforo = new Observable((subscriber) => {
-  //   let color = 'verde';
-  //   setInterval(() => {
-  //     if (color === 'verde') {
-
-  //       subscriber.next('rojo');
-  //     color = 'rojo'
-  //     }
-
-  //   else {
-  //     subscriber.next('verde');
-  //     color = 'verde'
-  //   }
-  // }
-
-  // semaforo.subscribe({
-  //   next: (color) => {console.log(color)},
-  //   error: () => {},
-  //   complete: () => {},
-  // }
-
-  //
 }
