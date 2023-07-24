@@ -14,7 +14,12 @@ export class UsersComponent {
   public users: User[] = [];
 
   constructor(private matDialog: MatDialog, private userService: UserService) {
-    this.users = this.userService.getUsers();
+    this.userService.loadUsers();
+    this.userService.getUsers().subscribe({
+      next: (v) => {
+        this.users = v;
+      },
+    });
   }
 
   onCreateUser(): void {
