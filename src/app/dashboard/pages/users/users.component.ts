@@ -51,8 +51,8 @@ export class UsersComponent {
 
   onDeleteUser(userToDelete: User): void {
     if (confirm('Estas seguro que deseas eliminar al alumno?'))
-      this.users = this.users.filter((u) => u.id !== userToDelete.id);
-    this.notifier.deleteSuccess('Alumno eliminado correctamente');
+      // this.users = this.users.filter((u) => u.id !== userToDelete.id);
+      this.notifier.deleteSuccess('Alumno eliminado correctamente');
   }
 
   editUser(userToEdit: User): void {
@@ -63,9 +63,9 @@ export class UsersComponent {
       next: (datanueva) => {
         if (datanueva) {
           this.notifier.editSuccess('Has editado los datos correctamente');
-          this.users = this.users.map((user) => {
-            return user.id === userToEdit.id ? { ...user, ...datanueva } : user;
-          });
+          // this.users = this.users.map((user) => {
+          //   return user.id === userToEdit.id ? { ...user, ...datanueva } : user;
+          // });
         }
       },
     });
