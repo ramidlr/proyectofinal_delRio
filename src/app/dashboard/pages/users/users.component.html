@@ -1,8 +1,25 @@
-<div class="mb-5">
-    <button (click)="onCreateUser()" mat-flat-button color="primary" type="button">
+<div class="buttons">
+<div class="mb-2">
+    <button (click)="onCreateUser()" mat-flat-button color="primary" type="button">Add
         <mat-icon>add</mat-icon>
     </button>
 </div>
 
+<div class="mb-2">
+    <button (click)="filterUsersByCourse('Angular')" mat-flat-button color="primary" type="button">Filter
+        <mat-icon>filter_list</mat-icon>
+    </button>
+</div>
+
+<div class="mb-2">
+    <button (click)="sortUsersByName()" mat-flat-button color="primary" type="button">Sort
+        <mat-icon>expand_more</mat-icon>
+    </button>
+</div>
+
+</div>
+
+
 <app-users-table [dataSource]="(users | async) || []" (deleteUser)="onDeleteUser($event)" (editUser)="editUser($event)">
 </app-users-table>
+

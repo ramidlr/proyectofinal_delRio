@@ -1,19 +1,21 @@
-import { Component } from '@angular/core';
+import { Component, OnDestroy } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { UserFormDialogComponent } from './components/user-form-dialog/user-form-dialog.component';
 import { User } from './models/model';
 import { UserService } from './user.service';
 import { NotifierService } from 'src/app/core/services/notifier.service';
-import { Observable, map } from 'rxjs';
+import { Observable, Subject, map, takeUntil } from 'rxjs';
 
-// const ELEMENT_DATA: User[]
 @Component({
   selector: 'app-users',
   templateUrl: './users.component.html',
   styleUrls: ['./users.component.scss'],
 })
-export class UsersComponent {
+export class UsersComponent implements OnDestroy {
   public users: Observable<User[]>;
+  public filteredUsers$: Observable<User[]>;
+  public sortedUsers$: Observable<User[]>;
+  private destroy$ = new Subject<void>();
 
   constructor(
     private matDialog: MatDialog,
@@ -29,6 +31,9 @@ export class UsersComponent {
         }))
       )
     );
+
+    this.filteredUsers$ = this.users;
+    this.sortedUsers$ = this.users;
 
     this.userService.loadUsers();
     // this.userService.getUsers().subscribe({
@@ -78,5 +83,22 @@ export class UsersComponent {
         }
       },
     });
+  }
+
+  filterUsersByCourse(course: string): void {
+    this.filteredUsers$ = this.users$.pipe(
+      map((users) => users$.filter((user) => user.course === course))
+    );
+  }
+
+  sortUsersByName(): void {
+    this.sortedUsers$ = this.users$.pipe(
+      map((users) => users.slice().sort((a, b) => a.name.localeCompare(b.name)))
+    );
+  }
+
+  ngOnDestroy(): void {
+    this.destroy$.next();
+    this.destroy$.complete();
   }
 }
