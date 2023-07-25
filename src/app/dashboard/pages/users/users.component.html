@@ -1,25 +1,38 @@
 <div class="buttons">
-<div class="mb-2">
-    <button (click)="onCreateUser()" mat-flat-button color="primary" type="button">Add
-        <mat-icon>add</mat-icon>
-    </button>
+    <div class="mb-2">
+        <button (click)="onCreateUser()" mat-flat-button color="primary" type="button">Add
+            <mat-icon>add</mat-icon>
+        </button>
+    </div>
 </div>
 
-<div class="mb-2">
-    <button (click)="filterUsersByCourse('Angular')" mat-flat-button color="primary" type="button">Filter
-        <mat-icon>filter_list</mat-icon>
-    </button>
+<app-users-table [dataSource]="(users | async) || []" (deleteUser)="onDeleteUser($event)" (editUser)="editUser($event)"></app-users-table>
+
+<h2>ALUMNOS</h2>
+
+<div>
+    <div class="mb-2">
+        <button (click)="filterUsersByCourse('Angular')" mat-flat-button color="primary" type="button">Filtrar x Angular
+            <mat-icon>filter_list</mat-icon>
+        </button>
+    </div>
+    <div class="mb-2">
+        <button (click)="filterUsersByCourse('UX')" mat-flat-button color="primary" type="button">Filtrar x UX
+            <mat-icon>filter_list</mat-icon>
+        </button>
+    </div>
+    <div class="mb-2">
+        <button (click)="filterUsersByCourse('React')" mat-flat-button color="primary" type="button">Filtrar x React
+            <mat-icon>filter_list</mat-icon>
+        </button>
+    </div>
 </div>
 
-<div class="mb-2">
-    <button (click)="sortUsersByName()" mat-flat-button color="primary" type="button">Sort
-        <mat-icon>expand_more</mat-icon>
-    </button>
-</div>
-
-</div>
-
-
-<app-users-table [dataSource]="(users | async) || []" (deleteUser)="onDeleteUser($event)" (editUser)="editUser($event)">
-</app-users-table>
-
+<ul>
+    <li *ngFor="let user of filteredUsers$ | async">
+        <span>Name: {{ user.name }}</span><br>
+        <span>Surname: {{ user.surname }}</span><br>
+        <span>Email: {{ user.email }}</span><br>
+        <span>Course: {{ user.course }}</span><br>
+    </li>
+</ul>

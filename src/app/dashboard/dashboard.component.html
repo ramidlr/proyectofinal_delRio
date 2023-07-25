@@ -1,19 +1,15 @@
-
-
 <!-- MENU IZQUIERDA-->
-    <mat-drawer-container class="example-container" autosize>
-    <mat-drawer #drawer class="example-sidenav" mode="side">
-      <ul>
-        <li>Link 1</li>
-        <li>Link 1</li>
-        <li>Link 1</li>
-        <li>Link 1</li>
-        <li>Link 1</li>
+<mat-drawer-container class="example-container" autosize>
+  <mat-drawer #drawer class="example-sidenav" mode="side">
+    <ul>
+      <li><a href="google.com">Home</a></li>
+      <li><a href="google.com">Alumnos</a></li>
+      <li><a href="google.com">Cursos</a></li>
+      <li><a href="google.com">Novedades</a></li>
 
-      </ul>
+    </ul>
     </mat-drawer>
   
-    <!-- MENU ARRIBA - TOOLBAR -->
 
     <mat-toolbar color="accent">
         <button (click)="drawer.toggle()" mat-icon-button class="example-icon" aria-label="menu icon">
@@ -23,7 +19,6 @@
         <span>codecamp</span>       
     </mat-toolbar>
 
-    <!-- CONTENIDO -->
      <main class="p-3">
 <app-home></app-home>
 <app-users></app-users>

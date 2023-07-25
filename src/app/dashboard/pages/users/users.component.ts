@@ -86,13 +86,13 @@ export class UsersComponent implements OnDestroy {
   }
 
   filterUsersByCourse(course: string): void {
-    this.filteredUsers$ = this.users$.pipe(
-      map((users) => users$.filter((user) => user.course === course))
+    this.filteredUsers$ = this.users.pipe(
+      map((users) => users.filter((user) => user.course === course))
     );
   }
 
   sortUsersByName(): void {
-    this.sortedUsers$ = this.users$.pipe(
+    this.sortedUsers$ = this.users.pipe(
       map((users) => users.slice().sort((a, b) => a.name.localeCompare(b.name)))
     );
   }
