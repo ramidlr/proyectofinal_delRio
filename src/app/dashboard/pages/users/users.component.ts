@@ -4,8 +4,7 @@ import { UserFormDialogComponent } from './components/user-form-dialog/user-form
 import { User } from './models/model';
 import { UserService } from './user.service';
 import { NotifierService } from 'src/app/core/services/notifier.service';
-import { Observable, filter, map, tap } from 'rxjs';
-import { UpperCasePipe } from '@angular/common';
+import { Observable, map } from 'rxjs';
 
 // const ELEMENT_DATA: User[]
 @Component({
