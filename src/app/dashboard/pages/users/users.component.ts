@@ -4,7 +4,8 @@ import { UserFormDialogComponent } from './components/user-form-dialog/user-form
 import { User } from './models/model';
 import { UserService } from './user.service';
 import { NotifierService } from 'src/app/core/services/notifier.service';
-import { Observable } from 'rxjs';
+import { Observable, filter, map, tap } from 'rxjs';
+import { UpperCasePipe } from '@angular/common';
 
 // const ELEMENT_DATA: User[]
 @Component({
@@ -20,7 +21,15 @@ export class UsersComponent {
     private userService: UserService,
     private notifier: NotifierService
   ) {
-    this.users = this.userService.getUsers();
+    this.users = this.userService.getUsers().pipe(
+      map((valor) =>
+        valor.map((usuario) => ({
+          ...usuario,
+          name: usuario.name.toLowerCase(),
+          surname: usuario.surname.toUpperCase(),
+        }))
+      )
+    );
 
     this.userService.loadUsers();
     // this.userService.getUsers().subscribe({
@@ -63,6 +72,7 @@ export class UsersComponent {
       next: (datanueva) => {
         if (datanueva) {
           this.notifier.editSuccess('Has editado los datos correctamente');
+
           // this.users = this.users.map((user) => {
           //   return user.id === userToEdit.id ? { ...user, ...datanueva } : user;
           // });
