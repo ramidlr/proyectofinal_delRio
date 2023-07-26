@@ -13,6 +13,7 @@ interface MyCustomNotification {
 })
 export class NotifierService {
   private notifier$ = new Subject<MyCustomNotification>();
+
   constructor() {
     this.notifier$.subscribe({
       next: (myNotification) => {
@@ -25,33 +26,16 @@ export class NotifierService {
     });
   }
 
-  createSuccess(message: string, title = ':)'): void {
+  showSuccess(message: string, title = 'Enhorabuena!'): void {
     this.notifier$.next({
       type: 'success',
       message,
       title,
     });
   }
-
-  editSuccess(message: string, title = 'Editar alumno'): void {
-    this.notifier$.next({
-      type: 'success',
-      message,
-      title,
-    });
-  }
-
-  editError(message: string, title = 'Error'): void {
+  showError(message: string, title = 'Error :('): void {
     this.notifier$.next({
       type: 'error',
-      message,
-      title,
-    });
-  }
-
-  deleteSuccess(message: string, title = 'Eliminado'): void {
-    this.notifier$.next({
-      type: 'success',
       message,
       title,
     });

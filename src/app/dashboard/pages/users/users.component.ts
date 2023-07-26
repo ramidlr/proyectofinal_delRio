@@ -36,7 +36,7 @@ export class UsersComponent {
     dialogRef.afterClosed().subscribe({
       next: (v) => {
         if (v) {
-          this.notifier.createSuccess('Alumno creado correctamente');
+          this.notifier.showSuccess('Alumno creado correctamente');
           this.userService.createUser({
             dni: v.dni,
             name: v.name,
@@ -52,7 +52,7 @@ export class UsersComponent {
 
   onDeleteUser(userToDelete: User): void {
     if (confirm('Estas seguro que deseas eliminar al alumno?'))
-      this.notifier.deleteSuccess('Alumno eliminado correctamente');
+      this.notifier.showSuccess('Alumno eliminado correctamente');
     this.userService.deleteUser(userToDelete.id);
   }
 
@@ -64,7 +64,7 @@ export class UsersComponent {
       next: (userUpdated) => {
         if (userUpdated) {
           this.userService.editUser(userToEdit.id, userUpdated);
-          this.notifier.editSuccess('Has editado los datos correctamente');
+          this.notifier.showSuccess('Has editado los datos correctamente');
         }
       },
     });
