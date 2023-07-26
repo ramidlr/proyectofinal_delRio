@@ -1,7 +1,7 @@
-import { Component, OnDestroy } from '@angular/core';
+import { Component } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { UserFormDialogComponent } from './components/user-form-dialog/user-form-dialog.component';
-import { User } from './models/model';
+import { User, CreateUserData } from './models/model';
 import { UserService } from './user.service';
 import { NotifierService } from 'src/app/core/services/notifier.service';
 import { Observable, Subject, map, takeUntil } from 'rxjs';
@@ -11,17 +11,15 @@ import { Observable, Subject, map, takeUntil } from 'rxjs';
   templateUrl: './users.component.html',
   styleUrls: ['./users.component.scss'],
 })
-export class UsersComponent implements OnDestroy {
+export class UsersComponent {
   public users: Observable<User[]>;
-  public filteredUsers$: Observable<User[]>;
-  public sortedUsers$: Observable<User[]>;
-  private destroy$ = new Subject<void>();
 
   constructor(
     private matDialog: MatDialog,
     private userService: UserService,
     private notifier: NotifierService
   ) {
+    this.userService.loadUsers();
     this.users = this.userService.getUsers().pipe(
       map((valor) =>
         valor.map((usuario) => ({
@@ -31,16 +29,6 @@ export class UsersComponent implements OnDestroy {
         }))
       )
     );
-
-    this.filteredUsers$ = this.users;
-    this.sortedUsers$ = this.users;
-
-    this.userService.loadUsers();
-    // this.userService.getUsers().subscribe({
-    //   next: (v) => {
-    //     this.users = v;
-    //   },
-    // });
   }
 
   onCreateUser(): void {
@@ -50,7 +38,7 @@ export class UsersComponent implements OnDestroy {
         if (v) {
           this.notifier.createSuccess('Alumno creado correctamente');
           this.userService.createUser({
-            id: v.id,
+            dni: v.dni,
             name: v.name,
             surname: v.surname,
             email: v.email,
@@ -64,8 +52,8 @@ export class UsersComponent implements OnDestroy {
 
   onDeleteUser(userToDelete: User): void {
     if (confirm('Estas seguro que deseas eliminar al alumno?'))
-      // this.users = this.users.filter((u) => u.id !== userToDelete.id);
       this.notifier.deleteSuccess('Alumno eliminado correctamente');
+    this.userService.deleteUser(userToDelete.id);
   }
 
   editUser(userToEdit: User): void {
@@ -73,32 +61,12 @@ export class UsersComponent implements OnDestroy {
       data: userToEdit,
     });
     dialogRef.afterClosed().subscribe({
-      next: (datanueva) => {
-        if (datanueva) {
+      next: (userUpdated) => {
+        if (userUpdated) {
+          this.userService.editUser(userToEdit.id, userUpdated);
           this.notifier.editSuccess('Has editado los datos correctamente');
-
-          // this.users = this.users.map((user) => {
-          //   return user.id === userToEdit.id ? { ...user, ...datanueva } : user;
-          // });
         }
       },
     });
-  }
-
-  filterUsersByCourse(course: string): void {
-    this.filteredUsers$ = this.users.pipe(
-      map((users) => users.filter((user) => user.course === course))
-    );
-  }
-
-  sortUsersByName(): void {
-    this.sortedUsers$ = this.users.pipe(
-      map((users) => users.slice().sort((a, b) => a.name.localeCompare(b.name)))
-    );
-  }
-
-  ngOnDestroy(): void {
-    this.destroy$.next();
-    this.destroy$.complete();
   }
 }

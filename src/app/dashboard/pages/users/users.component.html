@@ -7,32 +7,3 @@
 </div>
 
 <app-users-table [dataSource]="(users | async) || []" (deleteUser)="onDeleteUser($event)" (editUser)="editUser($event)"></app-users-table>
-
-<h2>ALUMNOS</h2>
-
-<div>
-    <div class="mb-2">
-        <button (click)="filterUsersByCourse('Angular')" mat-flat-button color="primary" type="button">Filtrar x Angular
-            <mat-icon>filter_list</mat-icon>
-        </button>
-    </div>
-    <div class="mb-2">
-        <button (click)="filterUsersByCourse('UX')" mat-flat-button color="primary" type="button">Filtrar x UX
-            <mat-icon>filter_list</mat-icon>
-        </button>
-    </div>
-    <div class="mb-2">
-        <button (click)="filterUsersByCourse('React')" mat-flat-button color="primary" type="button">Filtrar x React
-            <mat-icon>filter_list</mat-icon>
-        </button>
-    </div>
-</div>
-
-<ul>
-    <li *ngFor="let user of filteredUsers$ | async">
-        <span>Name: {{ user.name }}</span><br>
-        <span>Surname: {{ user.surname }}</span><br>
-        <span>Email: {{ user.email }}</span><br>
-        <span>Course: {{ user.course }}</span><br>
-    </li>
-</ul>

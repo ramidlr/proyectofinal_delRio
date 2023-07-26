@@ -3,7 +3,8 @@ import { User } from '../models/model';
 export class UserMockService {
   private users: User[] = [
     {
-      id: '90882735',
+      id: 1,
+      dni: '90882735',
       name: 'Usuario Falso',
       surname: 'de Testing',
       email: 'jc8989scila@hotmail.com',
@@ -11,7 +12,8 @@ export class UserMockService {
       password: '123456',
     },
     {
-      id: '38992781',
+      id: 2,
+      dni: '38992781',
       name: 'testing',
       surname: 'Zjskkjajs',
       email: 'zabaleta@gmail.com',
@@ -19,7 +21,8 @@ export class UserMockService {
       password: '123456',
     },
     {
-      id: '40009087',
+      id: 3,
+      dni: '40009087',
       name: 'Jonathan',
       surname: 'Gonzalez',
       email: 'j_gonzalez90@hotmail.com',

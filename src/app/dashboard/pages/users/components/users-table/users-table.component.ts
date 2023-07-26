@@ -1,9 +1,9 @@
 import { Component, Input, Output, EventEmitter } from '@angular/core';
 import { User } from '../../models/model';
 
-
 export interface UserElement {
-  id: string,
+  id: number;
+  dni: string;
   name: string;
   surname: string;
   email: string;
@@ -14,10 +14,18 @@ export interface UserElement {
 @Component({
   selector: 'app-users-table',
   templateUrl: './users-table.component.html',
-  styleUrls: ['./users-table.component.scss']
+  styleUrls: ['./users-table.component.scss'],
 })
 export class UsersTableComponent {
-  displayedColumns: string[] = ['id', 'fullName', 'email', 'course', 'edit', 'delete'];
+  displayedColumns: string[] = [
+    'id',
+    'dni',
+    'fullName',
+    'email',
+    'course',
+    'edit',
+    'delete',
+  ];
 
   @Input()
   dataSource: User[] = [];

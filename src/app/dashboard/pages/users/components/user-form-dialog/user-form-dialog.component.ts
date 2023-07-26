@@ -11,15 +11,15 @@ import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
 import { User } from '../../models/model';
 import { ErrorStateMatcher } from '@angular/material/core';
 
-
 @Component({
   selector: 'app-user-form-dialog',
   templateUrl: './user-form-dialog.component.html',
   styleUrls: ['./user-form-dialog.component.scss'],
 })
 export class UserFormDialogComponent {
-  
-  idControl = new FormControl<string | null>(null, [
+  editingUser?: User;
+
+  dniControl = new FormControl<string | null>(null, [
     Validators.required,
     Validators.minLength(7),
   ]);
@@ -44,11 +44,11 @@ export class UserFormDialogComponent {
   ]);
 
   userForm = new FormGroup({
-    id: this.idControl,
+    dni: this.dniControl,
     name: this.nameControl,
     surname: this.surnameControl,
     email: this.emailControl,
-    course: this.courseControl, 
+    course: this.courseControl,
     password: this.passwordControl,
   });
 
@@ -76,11 +76,12 @@ export class UserFormDialogComponent {
     @Inject(MAT_DIALOG_DATA) private data?: User
   ) {
     if (this.data) {
-      this.idControl.setValue(this.data.id);
+      this.editingUser = this.data;
+      this.dniControl.setValue(this.data.dni);
       this.nameControl.setValue(this.data.name);
       this.surnameControl.setValue(this.data.surname);
       this.emailControl.setValue(this.data.email);
-      this.courseControl.setValue(this.data.course)
+      this.courseControl.setValue(this.data.course);
       this.passwordControl.setValue(this.data.password);
     }
   }

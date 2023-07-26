@@ -1,16 +1,16 @@
-<h1 mat-dialog-title>Perfil de Alumno</h1>
+<h1 mat-dialog-title>{{ editingUser ? 'Editando a ' + editingUser.name : 'Creando Usuario'}}</h1>
 <div mat-dialog-content>
     <form [formGroup]="userForm" class="grid">
        
         <div class="col-6 field">
             <mat-form-field class="w-full" appearance="outline">
                 <mat-label>DNI</mat-label>
-                <input formControlName="id" matInput type="text" name="id">
-                <mat-error *ngIf="idControl.hasError('required')">
+                <input formControlName="dni" matInput type="text" name="dni">
+                <mat-error *ngIf="dniControl.hasError('required')">
                     Completa el DNI para continuar
                 </mat-error>
-                <mat-error *ngIf="idControl.hasError('minlength')">
-                    El DNI debe tener al menos {{idControl.errors?.['minlength']?.requiredLength}} numeros
+                <mat-error *ngIf="dniControl.hasError('minlength')">
+                    El DNI debe tener al menos {{dniControl.errors?.['minlength']?.requiredLength}} numeros
                 </mat-error>
             </mat-form-field>
         </div>
