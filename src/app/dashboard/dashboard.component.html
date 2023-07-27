@@ -1,15 +1,14 @@
 <!-- MENU IZQUIERDA-->
 <mat-drawer-container class="example-container" autosize>
   <mat-drawer #drawer class="example-sidenav" mode="side">
-    <ul>
-      <li><a href="google.com">Home</a></li>
-      <li><a href="google.com">Alumnos</a></li>
-      <li><a href="google.com">Cursos</a></li>
-      <li><a href="google.com">Novedades</a></li>
-
-    </ul>
-    </mat-drawer>
-  
+    <mat-nav-list>
+      <div class="link-with-icon"><mat-icon>home</mat-icon><a routerLink="home" mat-list-item>HOME</a></div>
+      <div class="link-with-icon"><mat-icon>groups</mat-icon><a routerLink="alumnos" mat-list-item>ALUMNOS</a></div>
+      <div class="link-with-icon"><mat-icon>school</mat-icon><a routerLink="cursos" mat-list-item>CURSOS</a></div>
+      <div class="link-with-icon"><mat-icon>class</mat-icon><a routerLink="clases" mat-list-item>CLASES</a></div>
+      <div class="link-with-icon"><mat-icon>logout</mat-icon><a routerLink="/auth" mat-list-item>CERRAR</a></div>
+    </mat-nav-list>
+  </mat-drawer>
 
     <mat-toolbar color="accent">
         <button (click)="drawer.toggle()" mat-icon-button class="example-icon" aria-label="menu icon">
@@ -20,10 +19,7 @@
     </mat-toolbar>
 
      <main class="p-3">
-<app-home></app-home>
-<app-users></app-users>
-
-
+<router-outlet></router-outlet>
     </main>
 
   </mat-drawer-container>

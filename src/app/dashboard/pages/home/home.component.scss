@@ -1,3 +1,13 @@
 mat-card {
-    border-color: 2px solid black;
+    border-color: 15px solid black;
+    border-radius: 1%;
+    width: 300px;
+    height: 300px;
 }
+
+mat-card:hover {
+   background-color: #673ab7;
+   color: white;
+}
+
+

@@ -9,11 +9,13 @@
     height: 100%;
     align-items: center;
     justify-content: center;
+    text-decoration: line-through;
   }
   
   .example-sidenav {
     padding: 20px;
     width: 200px;
+    background-color: #ffd740;
   }
 
 //clase del toolbar
@@ -24,4 +26,15 @@
 main {
     min-height: calc(100vh - #{64px});
 }
+
+.link-with-icon {
+  display: flex;
+  align-items: center;
+}
+
+.link-with-icon:hover {
+  background-color: #673ab7;
+text-decoration: underline;
+}
+
 
