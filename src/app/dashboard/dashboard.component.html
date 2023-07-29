@@ -1,25 +1,12 @@
-<!-- MENU IZQUIERDA-->
 <mat-drawer-container class="example-container" autosize>
-  <mat-drawer #drawer class="example-sidenav" mode="side">
-    <mat-nav-list>
-      <div class="link-with-icon"><mat-icon>home</mat-icon><a routerLink="home" mat-list-item>HOME</a></div>
-      <div class="link-with-icon"><mat-icon>groups</mat-icon><a routerLink="alumnos" mat-list-item>ALUMNOS</a></div>
-      <div class="link-with-icon"><mat-icon>school</mat-icon><a routerLink="cursos" mat-list-item>CURSOS</a></div>
-      <div class="link-with-icon"><mat-icon>class</mat-icon><a routerLink="clases" mat-list-item>CLASES</a></div>
-      <div class="link-with-icon"><mat-icon>logout</mat-icon><a routerLink="/auth" mat-list-item>CERRAR</a></div>
-    </mat-nav-list>
+  <mat-drawer opened #drawer class="example-sidenav" mode="side">
+    <app-nav-menu></app-nav-menu>
   </mat-drawer>
 
-    <mat-toolbar color="accent">
-        <button (click)="drawer.toggle()" mat-icon-button class="example-icon" aria-label="menu icon">
-          <mat-icon>menu</mat-icon>
-        </button>
-        <mat-icon aria-hidden="false" aria-label="Home" fontIcon="home" color="primary"></mat-icon>
-        <span>codecamp</span>       
-    </mat-toolbar>
 
-     <main class="p-3">
-<router-outlet></router-outlet>
-    </main>
+  <app-toolbar [drawer]="drawer"></app-toolbar>
+  <main class="p-3">
+    <router-outlet></router-outlet>
+  </main>
 
-  </mat-drawer-container>
+</mat-drawer-container>

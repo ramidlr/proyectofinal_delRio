@@ -23,8 +23,7 @@ export class UsersTableComponent {
     'fullName',
     'email',
     'course',
-    'edit',
-    'delete',
+    'actions',
   ];
 
   @Input()
