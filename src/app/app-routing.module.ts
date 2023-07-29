@@ -4,6 +4,7 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 import { AuthComponent } from './auth/auth.component';
 import { HomeComponent } from './dashboard/pages/home/home.component';
 import { UsersComponent } from './dashboard/pages/users/users.component';
+import { UserDetailComponent } from './dashboard/pages/users/pages/user-detail/user-detail.component';
 
 const routes: Routes = [
   {
@@ -16,7 +17,16 @@ const routes: Routes = [
       },
       {
         path: 'alumnos',
-        component: UsersComponent,
+        children: [
+          {
+            path: '',
+            component: UsersComponent,
+          },
+          {
+            path: ':id',
+            component: UserDetailComponent,
+          },
+        ],
       },
       {
         path: '**',
