@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { BehaviorSubject, Observable } from 'rxjs';
+import { BehaviorSubject, Observable, take } from 'rxjs';
 import { Course } from './models';
 
 @Injectable({
@@ -52,4 +52,22 @@ export class CourseService {
       }
     ])
   }
+
+  create(): void {
+    this.courses$.pipe(take(1)).subscribe({
+      next: (arrayActual) => {
+        this.courses$.next([
+          ...arrayActual, {
+            id: arrayActual.length + 1,
+            name: 'Curso Nuevo',
+            description: 'descripcion generica',
+            credits: 35,
+            price: 520
+          },
+        ]);
+      }
+    })
+  }
+
+
 }
