@@ -5,6 +5,7 @@ import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { DashboardModule } from './dashboard/dashboard.module';
 import { AuthModule } from './auth/auth.module';
+import { CoursesModule } from './dashboard/pages/courses/courses.module';
 
 @NgModule({
   declarations: [AppComponent],
@@ -14,6 +15,7 @@ import { AuthModule } from './auth/auth.module';
     BrowserAnimationsModule,
     DashboardModule,
     AuthModule,
+    CoursesModule
   ],
   providers: [],
   bootstrap: [AppComponent],
