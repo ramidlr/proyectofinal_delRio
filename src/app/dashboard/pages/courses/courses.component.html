@@ -1,56 +1,9 @@
-<h2 appLetragrande>Cursos</h2>
-
 <div class="buttons">
     <div class="mb-2">
-        <button (click)="onCreate()" mat-flat-button color="primary" type="button">Add
+        <button (click)="onCreateCourse()" mat-flat-button color="primary" type="button">Add
             <mat-icon>add</mat-icon>
         </button>
     </div>
 </div>
 
-<table mat-table [dataSource]="(data$ | async) || []" class="mat-elevation-z8">
-
-    <ng-container matColumnDef="id">
-        <th mat-header-cell *matHeaderCellDef> ID </th>
-        <td mat-cell *matCellDef="let course"> {{course.id}} </td>
-    </ng-container>
-
-    <ng-container matColumnDef="name">
-        <th mat-header-cell *matHeaderCellDef> Curso </th>
-        <td mat-cell *matCellDef="let course"> {{course.name}} </td>
-    </ng-container>
-
-    <ng-container matColumnDef="description">
-        <th mat-header-cell *matHeaderCellDef> Descripcion </th>
-        <td mat-cell *matCellDef="let course"> {{course.description}} </td>
-    </ng-container>
-
-
-    <ng-container matColumnDef="credits">
-        <th mat-header-cell *matHeaderCellDef> Creditos </th>
-        <td mat-cell *matCellDef="let course"> {{course.credits}} </td>
-    </ng-container>
-
-    <ng-container matColumnDef="price">
-        <th mat-header-cell *matHeaderCellDef> Precio </th>
-        <td mat-cell *matCellDef="let course"> {{course.price | currency }} </td>
-    </ng-container>
-    
-
-        <ng-container matColumnDef="actions">
-            <th mat-header-cell *matHeaderCellDef> Acciones </th>
-            <td mat-cell *matCellDef="let course">
-
-    
-    <button (click)="onDelete(course.id)" mat-icon-button color="warn">
-        <mat-icon>delete</mat-icon>
-    </button>
-
-            </td>
-        </ng-container>
-
-
-        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-        <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
-
-</table>
+<app-courses-table [dataSource]="(courses | async) || []" (deleteCourse)="deleteCourse($event)" (editCourse)="editCourse($event)"></app-courses-table>

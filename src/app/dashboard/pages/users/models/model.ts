@@ -24,3 +24,5 @@ export interface UpdateUserData {
   course?: any;
   password?: string;
 }
+
+
