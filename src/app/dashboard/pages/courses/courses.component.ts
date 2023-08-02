@@ -11,7 +11,7 @@ import { Observable } from 'rxjs';
 export class CoursesComponent implements OnInit {
   public dataSource: Course[] = [];
   public data$: Observable<Course[]>
-  public displayedColumns = ['id', 'name', 'description', 'credits', 'price']
+  public displayedColumns = ['id', 'name', 'description', 'credits', 'price', 'actions']
 
   constructor(private courseService: CourseService) {
     this.data$ = this.courseService.getCourses();
@@ -27,6 +27,10 @@ export class CoursesComponent implements OnInit {
 
   onCreate(): void {
     this.courseService.create();
+  }
+
+  onDelete(id: number): void {
+    this.courseService.deleteById(id);
   }
 
 

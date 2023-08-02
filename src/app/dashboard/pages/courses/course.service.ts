@@ -2,11 +2,15 @@ import { Injectable } from '@angular/core';
 import { BehaviorSubject, Observable, take } from 'rxjs';
 import { Course } from './models';
 
+
+
+
 @Injectable({
   providedIn: 'root'
 })
 export class CourseService {
   private courses$ = new BehaviorSubject<Course[]>([]);
+
 
   constructor() { }
 
@@ -68,6 +72,22 @@ export class CourseService {
       }
     })
   }
+
+
+  deleteById(id: number): void {
+    this.courses$.pipe(take(1)).subscribe({
+      next: (arrayActual) =>
+        this.courses$.next(arrayActual.filter((u) => u.id !== id)),
+    });
+  }
+
+
+
+
+
+
+
+
 
 
 }

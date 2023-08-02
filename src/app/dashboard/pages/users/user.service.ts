@@ -39,7 +39,7 @@ export class UserService {
   private _users$ = new BehaviorSubject<User[]>([]);
   private users$ = this._users$.asObservable();
 
-  constructor() {}
+  constructor() { }
 
   loadUsers(): void {
     USER_DB.subscribe({
@@ -54,7 +54,8 @@ export class UserService {
   getUserById(id: number): Observable<User | undefined> {
     return this.users$.pipe(take(1),
       map((users) => users.find((u) => u.id === id))
-      )}
+    )
+  }
 
 
 
