@@ -14,11 +14,11 @@ export class CourseFormDialogComponent {
 
   nameControl = new FormControl<string | null>(null, [
     Validators.required,
-    Validators.minLength(7),
+    Validators.minLength(3),
   ]);
   descriptionControl = new FormControl<string | null>(null, [
     Validators.required,
-    Validators.minLength(3),
+    Validators.minLength(10),
   ]);
   creditsControl = new FormControl<number | null>(null, [
     Validators.required,
