@@ -8,7 +8,7 @@ import { MatIconModule } from '@angular/material/icon';
 import { HomeModule } from './pages/home/home.module';
 import { UsersModule } from './pages/users/users.module';
 import { RouterModule } from '@angular/router';
-import { MatList, MatListModule } from '@angular/material/list';
+import { MatListModule } from '@angular/material/list';
 import { NavMenuComponent } from './layout/nav-menu/nav-menu.component';
 import { ToolbarComponent } from './layout/toolbar/toolbar.component';
 
@@ -27,4 +27,4 @@ import { ToolbarComponent } from './layout/toolbar/toolbar.component';
   ],
   exports: [DashboardComponent],
 })
-export class DashboardModule {}
+export class DashboardModule { }
