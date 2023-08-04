@@ -1,1 +1,39 @@
-<p>class-form-dialog works!</p>
+<h1 mat-dialog-title>{{ editingGoal ? 'Editando ' + editingGoal.name : 'Creando Clase'}}</h1>
+<div mat-dialog-content>
+    <form [formGroup]="goalForm" class="grid">
+
+        <div class="col-6 field">
+            <mat-form-field class="w-full" appearance="outline">
+                <mat-label>Nombre</mat-label>
+                <input formControlName="name" matInput type="text" name="name">
+                <mat-error *ngIf="nameControl.hasError('required')">
+                    Completa el nombre de la clase para continuar
+                </mat-error>
+                <mat-error *ngIf="nameControl.hasError('minlength')">
+                    El nombre debe tener al menos {{nameControl.errors?.['minlength']?.requiredLength}} caracteres
+                </mat-error>
+            </mat-form-field>
+        </div>
+
+        <div class="col-6 field">
+            <mat-form-field class="w-full" appearance="outline">
+                <mat-label>Descripcion</mat-label>
+                <input formControlName="description" matInput type="text" name="description">
+                <mat-error *ngIf="descriptionControl.hasError('required')">
+                    Completa el campo para continuar
+                </mat-error>
+                <mat-error *ngIf="descriptionControl.hasError('minlength')">
+                    La descripcion debe tener al menos {{descriptionControl.errors?.['minlength']?.requiredLength}}
+                    caracteres
+                </mat-error>
+            </mat-form-field>
+        </div>
+
+       
+    </form>
+</div>
+
+<div class="flex justify-content-center" mat-dialog-actions>
+    <button mat-button mat-dialog-close>Cancelar</button>
+    <button mat-button (click)="onSubmit()">Confirmar</button>
+</div>

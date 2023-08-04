@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { GoalsComponent } from './goals.component';
 import { GoalFormDialogComponent } from './components/goal-form-dialog/goal-form-dialog.component';
 import { GoalsTableComponent } from './components/goals-table/goals-table.component';
+import { SharedModule } from 'src/app/shared/shared.module';
 
 @NgModule({
   declarations: [
@@ -11,7 +12,7 @@ import { GoalsTableComponent } from './components/goals-table/goals-table.compon
     GoalsTableComponent
   ],
   imports: [
-    CommonModule
+    CommonModule, SharedModule
   ]
 })
-export class ClassesModule { }
+export class GoalsModule { }

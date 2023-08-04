@@ -8,6 +8,7 @@ import { UserDetailComponent } from './dashboard/pages/users/pages/user-detail/u
 import { LoginComponent } from './auth/pages/login/login.component';
 import { RegisterComponent } from './auth/pages/register/register.component';
 import { CoursesComponent } from './dashboard/pages/courses/courses.component';
+import { GoalsComponent } from './dashboard/pages/goals/goals.component';
 
 const routes: Routes = [
   {
@@ -19,26 +20,29 @@ const routes: Routes = [
         component: HomeComponent,
       },
       {
-        path: 'students',
+        path: 'alumnos',
         children: [
           {
             path: '',
             component: UsersComponent,
           },
           {
-            path: ':id',
+            path: 'id',
             component: UserDetailComponent,
           },
         ],
       },
       {
-        path: 'courses',
+        path: 'cursos',
         component: CoursesComponent
+      }, {
+        path: 'clases',
+        component: GoalsComponent,
       },
       {
         path: '**',
         redirectTo: 'home',
-      },
+      }
     ],
   },
   {
@@ -58,11 +62,11 @@ const routes: Routes = [
         redirectTo: 'login',
       },
     ],
-  },
+  }
 ];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule],
 })
-export class AppRoutingModule {}
+export class AppRoutingModule { }
