@@ -21,7 +21,7 @@ export class UserDetailComponent {
   ) {
     console.log(this.activatedRoute.snapshot.params['id']);
     if (!Number(this.activatedRoute.snapshot.params['id'])) {
-      [this.router.navigate(['dashboard', 'alumnos'])];
+      [this.router.navigate(['dashboard', 'usuarios'])];
       this.notification.showError('Usuario invalido');
     } else {
       this.userId = Number(this.activatedRoute.snapshot.params['id']);
@@ -31,18 +31,9 @@ export class UserDetailComponent {
 
   loadUser(): void {
     if (this.userId) {
-      this.usersService.getUserById(this.userId).subscribe({next: (user) => console.log(user)})
+      this.usersService.getUserById(this.userId).subscribe({ next: (user) => console.log(user) })
     }
   }
 
 
-  //Abajo: podemos usar servicios para lodear info de usuarios por ID. Esos metodos deben estar dentro del UserService.
-  //   loadUser(): void {
-
-  //     CourseService.getCourseByUserId(this.activatedRoute.snapshot.params['id']).subscribe({});
-
-  //     UserService.getUserById(this.activatedRoute.snapshot.params['id']).subscribe({
-  //     next: (user) => this.user
-  //   })
-  // }
 }
