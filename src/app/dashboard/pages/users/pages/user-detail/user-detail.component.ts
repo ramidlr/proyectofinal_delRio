@@ -20,7 +20,7 @@ export class UserDetailComponent {
     private usersService: UserService,
   ) {
     if (!Number(this.activatedRoute.snapshot.params['id'])) {
-      [this.router.navigate(['dashboard', 'usuarios'])];
+      this.router.navigate(['dashboard', 'usuarios']);
       this.notification.showError('Usuario invalido');
     } else {
       this.userId = Number(this.activatedRoute.snapshot.params['id']);
