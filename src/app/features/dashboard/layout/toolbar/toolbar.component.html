@@ -1,0 +1,13 @@
+<mat-toolbar class="flex justify-content-between align-items-center" color="accent">
+    <div>
+        <button (click)="drawer?.toggle()" mat-icon-button class="example-icon" aria-label="menu icon">
+            <mat-icon>menu</mat-icon>
+        </button>
+        <mat-icon aria-hidden="false" aria-label="Home" fontIcon="home" color="primary"></mat-icon>
+        <span>CodeCamp</span>
+    </div>
+    <p *ngIf="authUser$ | async; let authUser ">
+        {{ authUser?.name }} {{ authUser?.surname }}
+    </p>
+    
+</mat-toolbar>

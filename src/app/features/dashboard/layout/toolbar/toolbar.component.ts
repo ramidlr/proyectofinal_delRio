@@ -15,7 +15,7 @@ export class ToolbarComponent {
   public authUser$: Observable<User | null>;
 
   constructor(private authService: AuthService) {
-    this.authUser$ = this.authService.authUser$
+    this.authUser$ = this.authService.authUser$;
   }
 
 

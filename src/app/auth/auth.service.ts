@@ -1,7 +1,7 @@
 import { Injectable } from "@angular/core";
 import { LoginPayload } from "./models";
 import { BehaviorSubject } from "rxjs";
-import { User } from "../dashboard/pages/users/models/model";
+import { User } from "../features/dashboard/pages/users/models/model";
 import { NotifierService } from "../core/services/notifier.service";
 import { Router } from "@angular/router";
 
@@ -17,8 +17,8 @@ export class AuthService {
         const MOCK_USER: User = {
             id: 50,
             dni: '46196059',
-            name: 'Usuario Prueba',
-            surname: 'Best Surname',
+            name: 'John',
+            surname: 'McCain',
             email: 'mail@mail.com',
             course: 'React',
             password: '123456'
