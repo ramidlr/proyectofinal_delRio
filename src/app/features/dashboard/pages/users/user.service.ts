@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { CreateUserData, UpdateUserData, User } from './models/model';
-import { BehaviorSubject, Observable, map, of, take } from 'rxjs';
+import { BehaviorSubject, Observable, map, mergeMap, of, take } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
 
 
@@ -35,15 +35,29 @@ export class UserService {
 
 
 
-  createUser(user: CreateUserData): void {
-    this.users$.pipe(take(1)).subscribe({
-      next: (arrayActual) => {
-        this._users$.next([
-          ...arrayActual,
-          { ...user, id: arrayActual.length + 1 },
-        ]);
-      },
-    });
+  createUser(payload: CreateUserData): void {
+    // this.users$.pipe(take(1)).subscribe({
+    //   next: (arrayActual) => {
+    //     this._users$.next([
+    //       ...arrayActual,
+    //       { ...user, id: arrayActual.length + 1 },
+    //     ]);
+    //   },
+    // });
+
+    this.httpClient.post<User>('http://localhost:3000/users', payload)
+      .pipe(
+        mergeMap((userCreate) => this.users$.pipe(
+          take(1),
+          map((arrayActual) => [...arrayActual, userCreate])
+        )
+        )
+      )
+      .subscribe({
+        next: (arrayActualizado) => {
+          this._users$.next(arrayActualizado)
+        }
+      })
   }
 
   editUser(id: number, usuarioActualizado: UpdateUserData): void {
