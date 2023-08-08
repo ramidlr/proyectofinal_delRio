@@ -1,36 +1,9 @@
 import { Injectable } from '@angular/core';
 import { CreateUserData, UpdateUserData, User } from './models/model';
 import { BehaviorSubject, Observable, map, of, take } from 'rxjs';
+import { HttpClient } from '@angular/common/http';
 
-const USER_DB: Observable<User[]> = of([
-  {
-    id: 1,
-    dni: '90882735',
-    name: 'Marcos',
-    surname: 'Barrenechea',
-    email: 'marcos32@hotmail.com',
-    course: 'Angular',
-    password: '123456',
-  },
-  {
-    id: 2,
-    dni: '38992781',
-    name: 'Pedro',
-    surname: 'Zabaleta',
-    email: 'zabaleta@gmail.com',
-    course: 'UX',
-    password: '123456',
-  },
-  {
-    id: 3,
-    dni: '40009087',
-    name: 'Jonathan',
-    surname: 'Gonzalez',
-    email: 'j_gonzalez90@hotmail.com',
-    course: 'React',
-    password: '123456',
-  },
-]);
+
 
 @Injectable({
   providedIn: 'root',
@@ -39,12 +12,15 @@ export class UserService {
   private _users$ = new BehaviorSubject<User[]>([]);
   private users$ = this._users$.asObservable();
 
-  constructor() { }
+  constructor(private httpClient: HttpClient) { }
 
   loadUsers(): void {
-    USER_DB.subscribe({
-      next: (usuariosFromDb) => this._users$.next(usuariosFromDb),
-    });
+    this.httpClient.get<User[]>('http://localhost:3000/users').subscribe({
+      next: (response) => {
+        console.log('response: ', response);
+        this._users$.next(response);
+      }
+    })
   }
 
   getUsers(): Observable<User[]> {

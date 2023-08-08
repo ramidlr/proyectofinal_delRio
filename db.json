@@ -1,0 +1,20 @@
+{
+"users": [{
+
+
+ "id": 1,
+  "dni": "36169523",
+  "name": "Ramiro",
+  "surname": "del Rio",
+  "email": "mail@gmail.com",
+  "course": "Angular",
+  "password": "blkifkics2"
+}
+
+ 
+],
+"courses": [],
+"goals": []
+
+
+}
