@@ -23,7 +23,7 @@ import { GoalsModule } from './pages/goals/goals.module';
                 loadChildren: () => import('./pages/courses/courses.module').then((m) => m.CoursesModule)
             },
             {
-                path: 'categories',
+                path: 'clases',
                 loadChildren: () => import('./pages/goals/goals.module').then((m) => m.GoalsModule),
             },
             {

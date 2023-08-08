@@ -20,8 +20,8 @@ export class UserDetailComponent {
     private usersService: UserService,
   ) {
     if (!Number(this.activatedRoute.snapshot.params['id'])) {
-      this.router.navigate(['dashboard', 'usuarios']);
-      this.notification.showError(`${this.activatedRoute.snapshot.params['id']} no es un ID valido`);
+      [this.router.navigate(['dashboard', 'usuarios'])];
+      this.notification.showError('Usuario invalido');
     } else {
       this.userId = Number(this.activatedRoute.snapshot.params['id']);
       this.loadUser();
@@ -30,11 +30,7 @@ export class UserDetailComponent {
 
   loadUser(): void {
     if (this.userId) {
-
-      this.usersService.getUserById(this.userId).subscribe({
-        next: (user) => console.log(user),
-      })
+      this.usersService.getUserById(this.userId).subscribe({ next: (user) => console.log(user) })
     }
-
   }
 }
