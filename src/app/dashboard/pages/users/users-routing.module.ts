@@ -16,7 +16,7 @@ import { UserDetailComponent } from './pages/user-detail/user-detail.component';
         component: UsersComponent,
       },
       {
-        path: 'id',
+        path: ':id',
         component: UserDetailComponent,
       }
     ])

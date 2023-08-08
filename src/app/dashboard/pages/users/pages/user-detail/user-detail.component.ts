@@ -1,28 +1,27 @@
 import { Component } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { UserService } from '../../user.service';
 import { User } from '../../models/model';
 import { NotifierService } from 'src/app/core/services/notifier.service';
+import { UserService } from '../../user.service';
 
 @Component({
   selector: 'app-user-detail',
   templateUrl: './user-detail.component.html',
-  styles: [],
+  styles: [
+  ]
 })
 export class UserDetailComponent {
   public user: User | null = null;
   public userId?: number;
-
   constructor(
     private activatedRoute: ActivatedRoute,
     private router: Router,
     private notification: NotifierService,
     private usersService: UserService,
   ) {
-    console.log(this.activatedRoute.snapshot.params['id']);
     if (!Number(this.activatedRoute.snapshot.params['id'])) {
-      [this.router.navigate(['dashboard', 'usuarios'])];
-      this.notification.showError('Usuario invalido');
+      this.router.navigate(['dashboard', 'usuarios']);
+      this.notification.showError(`${this.activatedRoute.snapshot.params['id']} no es un ID valido`);
     } else {
       this.userId = Number(this.activatedRoute.snapshot.params['id']);
       this.loadUser();
@@ -31,9 +30,11 @@ export class UserDetailComponent {
 
   loadUser(): void {
     if (this.userId) {
-      this.usersService.getUserById(this.userId).subscribe({ next: (user) => console.log(user) })
+
+      this.usersService.getUserById(this.userId).subscribe({
+        next: (user) => console.log(user),
+      })
     }
+
   }
-
-
 }
