@@ -44,6 +44,15 @@
       "course": "UX",
       "password": "Pa$$w0rd!",
       "id": 5
+    },
+    {
+      "dni": "814091824091384",
+      "name": "kasnflaksnflkasn",
+      "surname": "lkansflkasnflksan",
+      "email": "mail@mail.com",
+      "course": "React",
+      "password": "Blalkslkjhasd987",
+      "id": 6
     }
   ],
   "courses": [],

@@ -13,6 +13,7 @@ import { Observable, Subject, map, takeUntil } from 'rxjs';
 })
 export class UsersComponent {
   public users: Observable<User[]>;
+  public isLoading$: Observable<boolean>;
 
   constructor(
     private matDialog: MatDialog,
@@ -20,6 +21,7 @@ export class UsersComponent {
     private notifier: NotifierService
   ) {
     this.userService.loadUsers();
+    this.isLoading$ = this.userService.isLoading$;
     this.users = this.userService.getUsers().pipe(
       map((valor) =>
         valor.map((usuario) => ({

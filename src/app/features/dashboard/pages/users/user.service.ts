@@ -1,7 +1,8 @@
 import { Injectable } from '@angular/core';
 import { CreateUserData, UpdateUserData, User } from './models/model';
 import { BehaviorSubject, Observable, map, mergeMap, of, take } from 'rxjs';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { NotifierService } from 'src/app/core/services/notifier.service';
 
 
 
@@ -11,14 +12,28 @@ import { HttpClient } from '@angular/common/http';
 export class UserService {
   private _users$ = new BehaviorSubject<User[]>([]);
   private users$ = this._users$.asObservable();
+  private _isLoading$ = new BehaviorSubject(false);
+  public isLoading$ = this._isLoading$.asObservable();
 
-  constructor(private httpClient: HttpClient) { }
+
+  constructor(private httpClient: HttpClient, private notifier: NotifierService) { }
 
   loadUsers(): void {
-    this.httpClient.get<User[]>('http://localhost:3000/users').subscribe({
+    this._isLoading$.next(true);
+    this.httpClient.get<User[]>('http://localhost:3000/users', {
+      headers: new HttpHeaders({ 'token': '123456' }), params: {
+        page: 1,
+        limit: 50,
+      }
+    }).subscribe({
       next: (response) => {
-        console.log('response: ', response);
         this._users$.next(response);
+      },
+      error: () => {
+        this.notifier.showError('Error del servidor')
+      },
+      complete: () => {
+        this._isLoading$.next(false);
       }
     })
   }
@@ -36,15 +51,6 @@ export class UserService {
 
 
   createUser(payload: CreateUserData): void {
-    // this.users$.pipe(take(1)).subscribe({
-    //   next: (arrayActual) => {
-    //     this._users$.next([
-    //       ...arrayActual,
-    //       { ...user, id: arrayActual.length + 1 },
-    //     ]);
-    //   },
-    // });
-
     this.httpClient.post<User>('http://localhost:3000/users', payload)
       .pipe(
         mergeMap((userCreate) => this.users$.pipe(
@@ -59,24 +65,18 @@ export class UserService {
         }
       })
   }
-
   editUser(id: number, usuarioActualizado: UpdateUserData): void {
-    this.users$.pipe(take(1)).subscribe({
-      next: (arrayActual) => {
-        this._users$.next(
-          arrayActual.map((u) =>
-            u.id === id ? { ...u, ...usuarioActualizado } : u
-          )
-        );
-      },
-    });
+    this.httpClient.put('http://localhost:3000/users' + id, usuarioActualizado).subscribe({
+      next: () => this.loadUsers(),
+    })
   }
 
   deleteUser(id: number): void {
-    this._users$.pipe(take(1)).subscribe({
-      next: (arrayActual) =>
-        this._users$.next(arrayActual.filter((u) => u.id !== id)),
-    });
+    this.httpClient.delete('http://localhost:3000/users' + id)
+      .pipe().subscribe({
+        next: (arrayActualizado) => this.loadUsers(),
+      })
+
   }
 
 
