@@ -1,8 +1,9 @@
 import { Injectable } from '@angular/core';
 import { CreateUserData, UpdateUserData, User } from './models/model';
-import { BehaviorSubject, Observable, map, mergeMap, of, take } from 'rxjs';
+import { BehaviorSubject, Observable, generate, map, mergeMap, of, take } from 'rxjs';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { NotifierService } from 'src/app/core/services/notifier.service';
+import { generateRandomString } from 'src/app/shared/utils/helpers';
 
 
 
@@ -49,9 +50,10 @@ export class UserService {
   }
 
 
-
   createUser(payload: CreateUserData): void {
-    this.httpClient.post<User>('http://localhost:3000/users', payload)
+    const token = generateRandomString(20);
+
+    this.httpClient.post<User>('http://localhost:3000/users', { ...payload, token })
       .pipe(
         mergeMap((userCreate) => this.users$.pipe(
           take(1),

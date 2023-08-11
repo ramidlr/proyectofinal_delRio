@@ -15,7 +15,12 @@ export class AuthService {
     constructor(private notifier: NotifierService, private router: Router, private httpClient: HttpClient) { }
 
     isAuthenticated(): Observable<boolean> {
-        return this.authUser$.pipe(take(1), map((user) => !!user))
+        // return this.authUser$.pipe(take(1), map((user) => !!user))
+        return this.httpClient.get<User[]>('http://localhost:3000/users', {
+            params: {
+                token: localStorage.getItem('token') || '',
+            }
+        }).pipe(map((userResult) => { return !!userResult.length }))
     }
 
     login(payload: LoginPayload): void {
@@ -27,8 +32,10 @@ export class AuthService {
         }).subscribe({
             next: (response) => {
                 if (response.length) {
+                    const authUser = response[0];
                     this._authUser$.next(response[0]);
                     this.router.navigate(['/dashboard']);
+                    localStorage.setItem('token', authUser.token)
                 } else {
                     this.notifier.showError('Email o contrasena invalida');
                     this._authUser$.next(null);

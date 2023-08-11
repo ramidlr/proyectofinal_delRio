@@ -10,6 +10,7 @@ export class UserMockService {
       email: 'jc8989scila@hotmail.com',
       course: 'Angular',
       password: '123456',
+      token: ''
     },
     {
       id: 2,
@@ -19,6 +20,8 @@ export class UserMockService {
       email: 'zabaleta@gmail.com',
       course: 'UX',
       password: '123456',
+      token: ''
+
     },
     {
       id: 3,
@@ -28,6 +31,8 @@ export class UserMockService {
       email: 'j_gonzalez90@hotmail.com',
       course: 'React',
       password: '123456',
+      token: ''
+
     },
   ];
 

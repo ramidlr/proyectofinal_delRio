@@ -7,7 +7,8 @@
       "surname": "del Rio",
       "email": "mail@gmail.com",
       "course": "Angular",
-      "password": "blkifkics2"
+      "password": "blkifkics2",
+      "token": "124080u124hqohfaoihasf"
     },
     {
       "dni": "Nihil inventore volu",
@@ -16,6 +17,7 @@
       "email": "gokyge@mailinator.com",
       "course": "UX",
       "password": "Pa$$w0rd!",
+      "token": "124080u1asdasd24hqohfaoihasf",
       "id": 2
     },
     {
@@ -25,6 +27,7 @@
       "email": "lycesevix@mailinator.com",
       "course": "Angular",
       "password": "Pa$$w0rd!",
+      "token": "124080u124hqoasdhfaoihasf",
       "id": 3
     },
     {
@@ -34,6 +37,7 @@
       "email": "mikaluhux@mailinator.com",
       "course": "React",
       "password": "Pa$$w0rd!",
+      "token": "12408aaaaaohfaoihasf",
       "id": 4
     },
     {
@@ -43,6 +47,7 @@
       "email": "wumyzoga@mailinator.com",
       "course": "UX",
       "password": "Pa$$w0rd!",
+      "token": "124080lknaslfknfaoihasf",
       "id": 5
     },
     {
@@ -52,7 +57,28 @@
       "email": "mail@mail.com",
       "course": "React",
       "password": "Blalkslkjhasd987",
+      "token": "124080lsihasf",
       "id": 6
+    },
+    {
+      "dni": "101010101010",
+      "name": "Carlos sanchez",
+      "surname": "del Rio",
+      "email": "hola@soy.com",
+      "course": "React",
+      "password": "Blackparde1029",
+      "token": "irARsssYVzH0Ci",
+      "id": 7
+    },
+    {
+      "dni": "91240912840912",
+      "name": "ljanflanfs",
+      "surname": "lknsflknasflkn",
+      "email": "a@aool.com",
+      "course": "React",
+      "password": "Bliohasfklnlkanf2",
+      "token": "irARBz3ouoLdVYVzH0Ci",
+      "id": 8
     }
   ],
   "courses": [],

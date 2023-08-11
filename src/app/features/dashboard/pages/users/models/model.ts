@@ -6,6 +6,7 @@ export interface User {
   email: string;
   course: any;
   password: string;
+  token: string;
 }
 
 export interface CreateUserData {
