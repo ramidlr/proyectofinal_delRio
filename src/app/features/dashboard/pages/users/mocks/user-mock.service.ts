@@ -7,7 +7,7 @@ export class UserMockService {
       dni: '90882735',
       name: 'Usuario Falso',
       surname: 'de Testing',
-      email: 'jc8989scila@hotmail.com',
+      email: 'mail@mail.com',
       course: 'Angular',
       password: '123456',
       token: ''

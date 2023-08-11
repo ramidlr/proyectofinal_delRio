@@ -5,6 +5,7 @@ import { User } from "../features/dashboard/pages/users/models/model";
 import { NotifierService } from "../core/services/notifier.service";
 import { Router } from "@angular/router";
 import { HttpClient, HttpErrorResponse } from '@angular/common/http';
+import { environment } from "src/environments/environment";
 
 @Injectable({ providedIn: 'root' })
 export class AuthService {
@@ -16,7 +17,7 @@ export class AuthService {
 
     isAuthenticated(): Observable<boolean> {
         // return this.authUser$.pipe(take(1), map((user) => !!user))
-        return this.httpClient.get<User[]>('http://localhost:3000/users', {
+        return this.httpClient.get<User[]>(environment.baseApiUrl + '/users', {
             params: {
                 token: localStorage.getItem('token') || '',
             }
