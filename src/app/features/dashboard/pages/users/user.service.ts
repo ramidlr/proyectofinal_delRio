@@ -69,13 +69,13 @@ export class UserService {
       })
   }
   editUser(id: number, usuarioActualizado: UpdateUserData): void {
-    this.httpClient.put(environment.baseApiUrl + '/users' + id, usuarioActualizado).subscribe({
+    this.httpClient.put(environment.baseApiUrl + '/users/' + id, usuarioActualizado).subscribe({
       next: () => this.loadUsers(),
     })
   }
 
   deleteUser(id: number): void {
-    this.httpClient.delete(environment.baseApiUrl + '/users' + id)
+    this.httpClient.delete(environment.baseApiUrl + '/users/' + id)
       .pipe().subscribe({
         next: (arrayActualizado) => this.loadUsers(),
       })

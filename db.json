@@ -1,24 +1,13 @@
 {
   "users": [
     {
-      "id": 1,
       "dni": "36169523",
-      "name": "Ramiro",
-      "surname": "del Rio",
+      "name": "ramiro",
+      "surname": "DEL RIO",
       "email": "mail@gmail.com",
-      "course": "Angular",
+      "course": "CS50",
       "password": "blkifkics2",
-      "token": "124080u124hqohfaoihasf"
-    },
-    {
-      "dni": "Nihil inventore volu",
-      "name": "Ginger Fleming",
-      "surname": "Gibson",
-      "email": "gokyge@mailinator.com",
-      "course": "UX",
-      "password": "Pa$$w0rd!",
-      "token": "124080u1asdasd24hqohfaoihasf",
-      "id": 2
+      "id": 1
     },
     {
       "dni": "Sapiente numquam del",
@@ -69,16 +58,6 @@
       "password": "Blackparde1029",
       "token": "irARsssYVzH0Ci",
       "id": 7
-    },
-    {
-      "dni": "91240912840912",
-      "name": "ljanflanfs",
-      "surname": "lknsflknasflkn",
-      "email": "a@aool.com",
-      "course": "React",
-      "password": "Bliohasfklnlkanf2",
-      "token": "irARBz3ouoLdVYVzH0Ci",
-      "id": 8
     }
   ],
   "courses": [],
