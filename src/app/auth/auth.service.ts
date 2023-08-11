@@ -4,7 +4,7 @@ import { BehaviorSubject, Observable, map, take } from "rxjs";
 import { User } from "../features/dashboard/pages/users/models/model";
 import { NotifierService } from "../core/services/notifier.service";
 import { Router } from "@angular/router";
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 
 @Injectable({ providedIn: 'root' })
 export class AuthService {
@@ -32,6 +32,14 @@ export class AuthService {
                 } else {
                     this.notifier.showError('Email o contrasena invalida');
                     this._authUser$.next(null);
+                }
+            },
+            error: (err) => {
+                if (err instanceof HttpErrorResponse) {
+
+                    this.notifier.showError('Error http')
+
+
                 }
             }
         })

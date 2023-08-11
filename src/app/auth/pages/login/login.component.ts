@@ -9,7 +9,7 @@ import { AuthService } from '../../auth.service';
 })
 export class LoginComponent {
   public emailControl = new FormControl('mail@mail.com', [Validators.required, Validators.email]);
-  public passwordControl = new FormControl('123456', Validators.required);
+  public passwordControl = new FormControl('Blalkslkjhasd987', Validators.required);
 
 
 
