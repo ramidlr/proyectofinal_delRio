@@ -6,6 +6,8 @@ import { NotifierService } from "../core/services/notifier.service";
 import { Router } from "@angular/router";
 import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { environment } from "src/environments/environment";
+import { Store } from "@ngrx/store";
+import { AuthActions } from "../store/auth/auth.actions";
 
 @Injectable({ providedIn: 'root' })
 export class AuthService {
@@ -13,7 +15,7 @@ export class AuthService {
     private _authUser$ = new BehaviorSubject<User | null>(null);
     public authUser$ = this._authUser$.asObservable();
 
-    constructor(private notifier: NotifierService, private router: Router, private httpClient: HttpClient) { }
+    constructor(private notifier: NotifierService, private router: Router, private httpClient: HttpClient, private store: Store) { }
 
     isAuthenticated(): Observable<boolean> {
         // return this.authUser$.pipe(take(1), map((user) => !!user))
@@ -33,13 +35,18 @@ export class AuthService {
         }).subscribe({
             next: (response) => {
                 if (response.length) {
+                    //valid login
                     const authUser = response[0];
-                    this._authUser$.next(response[0]);
+                    this._authUser$.next(authUser);
+                    this.store.dispatch(AuthActions.setAuthUser({ payload: authUser }))
                     this.router.navigate(['/dashboard']);
                     localStorage.setItem('token', authUser.token)
                 } else {
+                    //invalid Login
                     this.notifier.showError('Email o contrasena invalida');
                     this._authUser$.next(null);
+                    this.store.dispatch(AuthActions.setAuthUser({ payload: null }))
+
                 }
             },
             error: (err) => {
@@ -54,4 +61,8 @@ export class AuthService {
 
     }
 
+
+    public logout() {
+        this.store.dispatch(AuthActions.setAuthUser({ payload: null }))
+    }
 }
