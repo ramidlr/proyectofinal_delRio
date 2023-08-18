@@ -1,0 +1,93 @@
+<h1 mat-dialog-title>{{ editingStudent ? 'Editando a ' + editingStudent.name : 'Creando Usuario'}}</h1>
+<div mat-dialog-content>
+    <form [formGroup]="studentForm" class="grid">
+
+        <div class="col-6 field">
+            <mat-form-field class="w-full" appearance="outline">
+                <mat-label>DNI</mat-label>
+                <input formControlName="dni" matInput type="text" name="dni">
+                <mat-error *ngIf="dniControl.hasError('required')">
+                    Completa el DNI para continuar
+                </mat-error>
+                <mat-error *ngIf="dniControl.hasError('minlength')">
+                    El DNI debe tener al menos {{dniControl.errors?.['minlength']?.requiredLength}} numeros
+                </mat-error>
+            </mat-form-field>
+        </div>
+
+        <div class="col-6 field">
+            <mat-form-field class="w-full" appearance="outline">
+                <mat-label>Nombre</mat-label>
+                <input formControlName="name" matInput type="text" name="name">
+                <mat-error *ngIf="nameControl.hasError('required')">
+                    Completa el campo para continuar
+                </mat-error>
+                <mat-error *ngIf="nameControl.hasError('minlength')">
+                    El nombre debe tener al menos {{nameControl.errors?.['minlength']?.requiredLength}} caracteres
+                </mat-error>
+                <mat-error *ngIf="nameControl.hasError('noJuan ')">
+                    El nombre no puede ser Juan.
+                </mat-error>
+            </mat-form-field>
+        </div>
+
+        <div class="col-6 field">
+            <mat-form-field class="w-full" appearance="outline">
+                <mat-label>Apellido</mat-label>
+                <input formControlName="surname" matInput type="text" name="surname">
+                <mat-error *ngIf="surnameControl.hasError('required')">
+                    Completa el campo para continuar
+                </mat-error>
+            </mat-form-field>
+        </div>
+
+
+        <div class="col-6 field">
+            <mat-form-field class="w-full" appearance="outline">
+                <mat-label>email</mat-label>
+                <input formControlName="email" matInput type="email" name="email">
+                <mat-error *ngIf="emailControl.hasError('required')">
+                    Completa el campo para continuar
+                </mat-error>
+            </mat-form-field>
+        </div>
+
+        <div class="col-6 field">
+            <mat-form-field class="w-full" appearance="outline">
+                <mat-label>Elige un curso</mat-label>
+                <mat-select [formControl]="courseControl" [errorStateMatcher]="matcher" placeholder="Curso a elegir">
+                    <mat-option value="Angular">Angular</mat-option>
+                    <mat-option value="React">React</mat-option>
+                    <mat-option value="UX">UX</mat-option>
+                    <mat-option value="CS50">CS50</mat-option>
+                </mat-select>
+                <mat-error *ngIf="courseControl.hasError('required')">Este campo es obligatorio</mat-error>
+                <mat-error *ngIf="courseControl.hasError('pattern') && !courseControl.hasError('required')">
+                    Debes elegir un curso
+                </mat-error>
+            </mat-form-field>
+        </div>
+
+        <div class="col-6 field">
+            <mat-form-field class="w-full" appearance="outline">
+                <mat-label>Password</mat-label>
+                <input formControlName="password" matInput type="password" name="password">
+                <mat-error *ngIf="passwordControl.hasError('required')">
+                    Completa el campo para continuar
+                </mat-error>
+            </mat-form-field>
+        </div>
+
+
+
+    </form>
+</div>
+
+<div class="flex justify-content-center" mat-dialog-actions>
+    <button mat-button mat-dialog-close>Cancelar</button>
+    <button mat-button (click)="onSubmit()">Confirmar</button>
+</div>
+
+<!-- <pre>
+    {{studentForm.value | json}}
+</pre> -->

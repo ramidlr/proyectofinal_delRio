@@ -31,6 +31,57 @@
     },
     {
       "dni": "Animi laborum totam",
+      "name": "kenneth rivera",
+      "surname": "BUTLERS",
+      "email": "wumyzoga@mailinator.com",
+      "course": "UX",
+      "password": "Pa$$w0rd!",
+      "id": 5
+    },
+    {
+      "dni": "814091824091384",
+      "name": "kasnflaksnflkasn",
+      "surname": "LKANSFLKASNFLKSAN",
+      "email": "mail@mail.com",
+      "course": "React",
+      "password": "buenavksa",
+      "id": 6
+    }
+  ],
+  "courses": [],
+  "goals": [],
+  "students": [
+    {
+      "dni": "36169523",
+      "name": "ramiro",
+      "surname": "DEL RIO",
+      "email": "mail@mail.com",
+      "course": "CS50",
+      "password": "12345678",
+      "id": 1
+    },
+    {
+      "dni": "Sapiente numquam del",
+      "name": "Kellie Holt",
+      "surname": "Sweeney",
+      "email": "lycesevix@mailinator.com",
+      "course": "Angular",
+      "password": "Pa$$w0rd!",
+      "token": "124080u124hqoasdhfaoihasf",
+      "id": 3
+    },
+    {
+      "dni": "Et omnis doloremque ",
+      "name": "Lunea Bates",
+      "surname": "Floyd",
+      "email": "mikaluhux@mailinator.com",
+      "course": "React",
+      "password": "Pa$$w0rd!",
+      "token": "12408aaaaaohfaoihasf",
+      "id": 4
+    },
+    {
+      "dni": "Animi laborum totam",
       "name": "Kenneth Rivera",
       "surname": "Butler",
       "email": "wumyzoga@mailinator.com",
@@ -59,7 +110,5 @@
       "token": "irARsssYVzH0Ci",
       "id": 7
     }
-  ],
-  "courses": [],
-  "goals": []
+  ]
 }

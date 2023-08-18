@@ -1,0 +1,14 @@
+<div class="buttons">
+    <div class="mb-2">
+        <button (click)="onCreateStudent()" mat-flat-button color="primary" type="button">Add
+            <mat-icon>add</mat-icon>
+        </button>
+    </div>
+</div>
+
+<div *ngIf="isLoading$ | async; else notLoading">Cargando</div>
+
+<ng-template #notLoading>
+    <app-students-table [dataSource]="(students | async) || []" (deleteStudent)="onDeleteStudent($event)"
+    (editStudent)="editStudent($event)"></app-students-table>
+</ng-template>
