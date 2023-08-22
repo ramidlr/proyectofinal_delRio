@@ -44,7 +44,7 @@ export class StudentService {
     return this.students$;
   }
 
-  getStudentById(id: number): Observable<Student | undefined> {
+  getStudentById(id: number) {
     return this.students$.pipe(take(1),
       map((students) => students.find((u) => u.id === id))
     )
