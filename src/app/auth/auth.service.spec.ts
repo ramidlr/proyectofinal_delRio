@@ -2,7 +2,7 @@ import { HttpClientTestingModule, HttpTestingController } from "@angular/common/
 import { TestBed } from "@angular/core/testing"
 import { RouterTestingModule } from "@angular/router/testing"
 import { AuthService } from "./auth.service"
-import { User } from "../features/dashboard/pages/users/models/model"
+import { User } from "../features/dashboard/pages/users/models/modelusers"
 import { MockProvider } from 'ng-mocks'
 import { Router } from "@angular/router"
 

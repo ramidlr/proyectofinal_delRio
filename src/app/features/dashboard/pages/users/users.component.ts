@@ -1,10 +1,10 @@
 import { Component } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { UserFormDialogComponent } from './components/user-form-dialog/user-form-dialog.component';
-import { User, CreateUserData } from './models/model';
+import { User } from './models/modelusers';
 import { UserService } from './user.service';
 import { NotifierService } from 'src/app/core/services/notifier.service';
-import { Observable, Subject, map, takeUntil } from 'rxjs';
+import { Observable, map } from 'rxjs';
 
 @Component({
   selector: 'app-users',

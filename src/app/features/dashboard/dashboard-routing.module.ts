@@ -31,7 +31,7 @@ import { GoalsModule } from './pages/goals/goals.module';
                 loadChildren: () => import('./pages/counter/counter.module').then((m) => m.CounterModule),
             },
             {
-                path: 'students',
+                path: 'alumnos',
                 loadChildren: () => import('./pages/students/students.module').then((m) => m.StudentsModule),
             },
             {

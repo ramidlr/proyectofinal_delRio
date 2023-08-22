@@ -1,5 +1,5 @@
 import { Component, Input, Output, EventEmitter } from '@angular/core';
-import { User } from '../../models/model';
+import { User } from '../../models/modelusers';
 
 export interface UserElement {
   id: number;

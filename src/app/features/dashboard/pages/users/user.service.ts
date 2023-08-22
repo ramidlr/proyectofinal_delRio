@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { CreateUserData, UpdateUserData, User } from './models/model';
+import { CreateUserData, UpdateUserData, User } from './models/modelusers';
 import { BehaviorSubject, Observable, generate, map, mergeMap, of, take } from 'rxjs';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { NotifierService } from 'src/app/core/services/notifier.service';

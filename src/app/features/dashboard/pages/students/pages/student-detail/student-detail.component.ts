@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { Student } from '../../models/model';
+import { Student } from '../../models/modelstudents';
 import { NotifierService } from 'src/app/core/services/notifier.service';
 import { StudentService } from '../../student.service';
 
@@ -20,8 +20,8 @@ export class StudentDetailComponent {
     private studentService: StudentService,
   ) {
     if (!Number(this.activatedRoute.snapshot.params['id'])) {
-      this.router.navigate(['dashboard', 'usuarios']);
-      this.notification.showError('Usuario invalido');
+      this.router.navigate(['dashboard', 'alumnos']);
+      this.notification.showError('Alumno invalido');
     } else {
       this.studentId = Number(this.activatedRoute.snapshot.params['id']);
       this.loadStudent();

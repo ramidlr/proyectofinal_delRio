@@ -1,10 +1,10 @@
 import { Component } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { StudentFormDialogComponent } from './components/student-form-dialog/student-form-dialog.component';
-import { Student, CreateStudentData } from './models/model';
+import { Student } from './models/modelstudents';
 import { StudentService } from './student.service';
 import { NotifierService } from 'src/app/core/services/notifier.service';
-import { Observable, Subject, map, takeUntil } from 'rxjs';
+import { Observable, map } from 'rxjs';
 
 @Component({
   selector: 'app-students',
@@ -24,10 +24,10 @@ export class StudentsComponent {
     this.isLoading$ = this.studentService.isLoading$;
     this.students = this.studentService.getStudents().pipe(
       map((valor) =>
-        valor.map((usuario) => ({
-          ...usuario,
-          name: usuario.name.toLowerCase(),
-          surname: usuario.surname.toUpperCase(),
+        valor.map((student) => ({
+          ...student,
+          name: student.name.toLowerCase(),
+          surname: student.surname.toUpperCase(),
         }))
       )
     );
@@ -38,7 +38,7 @@ export class StudentsComponent {
     dialogRef.afterClosed().subscribe({
       next: (v) => {
         if (v) {
-          this.notifier.showSuccess('Usuario creado correctamente');
+          this.notifier.showSuccess('Alumno creado correctamente');
           this.studentService.createStudent({
             dni: v.dni,
             name: v.name,
@@ -53,8 +53,8 @@ export class StudentsComponent {
   }
 
   onDeleteStudent(studentToDelete: Student): void {
-    if (confirm('Estas seguro que deseas eliminar al usuario?'))
-      this.notifier.showSuccess('Usuario eliminado correctamente');
+    if (confirm('Estas seguro que deseas eliminar al alumno?'))
+      this.notifier.showSuccess('Alumno eliminado correctamente');
     this.studentService.deleteStudent(studentToDelete.id);
   }
 

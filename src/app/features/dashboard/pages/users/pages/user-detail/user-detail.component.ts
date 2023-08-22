@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { User } from '../../models/model';
+import { User } from '../../models/modelusers';
 import { NotifierService } from 'src/app/core/services/notifier.service';
 import { UserService } from '../../user.service';
 

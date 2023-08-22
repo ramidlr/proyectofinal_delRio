@@ -1,4 +1,4 @@
-<h1 mat-dialog-title>{{ editingStudent ? 'Editando a ' + editingStudent.name : 'Creando Usuario'}}</h1>
+<h1 mat-dialog-title>{{ editingStudent ? 'Editando a ' + editingStudent.name : 'Creando Alumno'}}</h1>
 <div mat-dialog-content>
     <form [formGroup]="studentForm" class="grid">
 
@@ -24,9 +24,6 @@
                 </mat-error>
                 <mat-error *ngIf="nameControl.hasError('minlength')">
                     El nombre debe tener al menos {{nameControl.errors?.['minlength']?.requiredLength}} caracteres
-                </mat-error>
-                <mat-error *ngIf="nameControl.hasError('noJuan ')">
-                    El nombre no puede ser Juan.
                 </mat-error>
             </mat-form-field>
         </div>
@@ -88,6 +85,3 @@
     <button mat-button (click)="onSubmit()">Confirmar</button>
 </div>
 
-<!-- <pre>
-    {{studentForm.value | json}}
-</pre> -->

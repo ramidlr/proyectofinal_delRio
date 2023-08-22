@@ -1,4 +1,4 @@
-import { Student } from '../models/model';
+import { Student } from '../models/modelstudents';
 
 export class StudentMockService {
   private students: Student[] = [

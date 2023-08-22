@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { CreateStudentData, UpdateStudentData, Student } from './models/model';
+import { CreateStudentData, UpdateStudentData, Student } from './models/modelstudents';
 import { BehaviorSubject, Observable, generate, map, mergeMap, of, take } from 'rxjs';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { NotifierService } from 'src/app/core/services/notifier.service';
@@ -56,9 +56,9 @@ export class StudentService {
 
     this.httpClient.post<Student>(environment.baseApiUrl + '/students', { ...payload, token })
       .pipe(
-        mergeMap((Create) => this.students$.pipe(
+        mergeMap((studentCreate) => this.students$.pipe(
           take(1),
-          map((arrayActual) => [...arrayActual, Create])
+          map((arrayActual) => [...arrayActual, studentCreate])
         )
         )
       )
@@ -68,8 +68,8 @@ export class StudentService {
         }
       })
   }
-  editStudent(id: number, usuarioActualizado: UpdateStudentData): void {
-    this.httpClient.put(environment.baseApiUrl + '/students/' + id, usuarioActualizado).subscribe({
+  editStudent(id: number, alumnoActualizado: UpdateStudentData): void {
+    this.httpClient.put(environment.baseApiUrl + '/students/' + id, alumnoActualizado).subscribe({
       next: () => this.loadStudents(),
     })
   }

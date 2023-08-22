@@ -2,7 +2,7 @@ import { Component, Input } from '@angular/core';
 import { MatDrawer } from '@angular/material/sidenav';
 import { Observable } from 'rxjs';
 import { AuthService } from 'src/app/auth/auth.service';
-import { User } from '../../pages/users/models/model';
+import { User } from '../../pages/users/models/modelusers';
 import { Store } from '@ngrx/store';
 import { selectAuthUser } from '../../../../store/auth/auth.selector';
 

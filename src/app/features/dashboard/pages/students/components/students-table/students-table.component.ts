@@ -1,5 +1,5 @@
-import { Component, Input, Output, EventEmitter } from '@angular/core';
-import { Student } from '../../models/model';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
+import { Student } from '../../models/modelstudents';
 
 export interface StudentElement {
   id: number;

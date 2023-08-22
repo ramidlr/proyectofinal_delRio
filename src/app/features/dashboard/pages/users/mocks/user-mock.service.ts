@@ -1,4 +1,4 @@
-import { User } from '../models/model';
+import { User } from '../models/modelusers';
 
 export class UserMockService {
   private users: User[] = [

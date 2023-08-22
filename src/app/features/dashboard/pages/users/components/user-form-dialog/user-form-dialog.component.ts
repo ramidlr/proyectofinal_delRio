@@ -8,7 +8,7 @@ import {
   Validators,
 } from '@angular/forms';
 import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
-import { User } from '../../models/model';
+import { User } from '../../models/modelusers';
 import { ErrorStateMatcher } from '@angular/material/core';
 
 @Component({

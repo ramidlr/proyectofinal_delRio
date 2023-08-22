@@ -1,14 +1,11 @@
 import { Component, Inject } from '@angular/core';
 import {
-  AbstractControl,
   FormControl,
   FormGroup,
-  ValidationErrors,
-  ValidatorFn,
   Validators,
 } from '@angular/forms';
 import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
-import { Student } from '../../models/model';
+import { Student } from '../../models/modelstudents';
 import { ErrorStateMatcher } from '@angular/material/core';
 
 @Component({
@@ -25,9 +22,8 @@ export class StudentFormDialogComponent {
   ]);
   nameControl = new FormControl<string | null>(null, [
     Validators.required,
-    Validators.minLength(3),
-    this.noJuanValidator(),
-  ]);
+    Validators.minLength(3)
+    ]);
   surnameControl = new FormControl<string | null>(null, [
     Validators.required,
     Validators.minLength(3),
@@ -38,6 +34,7 @@ export class StudentFormDialogComponent {
   ]);
 
   courseControl = new FormControl(null, [Validators.required]);
+  
   passwordControl = new FormControl<string | null>(null, [
     Validators.required,
     Validators.minLength(8),
@@ -54,22 +51,6 @@ export class StudentFormDialogComponent {
 
   matcher = new ErrorStateMatcher();
 
-  noJuanValidator(): ValidatorFn {
-    return (control: AbstractControl): ValidationErrors | null => {
-      if (control instanceof FormControl) {
-        if (
-          typeof control.value === 'string' &&
-          control.value?.toLowerCase().includes('juan')
-        ) {
-          return {
-            noJuan: true,
-          };
-        }
-      }
-
-      return null;
-    };
-  }
 
   constructor(
     private dialogRef: MatDialogRef<StudentFormDialogComponent>,
