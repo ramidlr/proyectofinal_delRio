@@ -4,6 +4,16 @@
 
         <div class="col-6 field">
             <mat-form-field class="w-full" appearance="outline">
+            <mat-label>Elegir Rol</mat-label>
+            <mat-select [formControl]="roleControl">
+                <mat-option value="admin">admin</mat-option>
+                <mat-option value="normaluser">normaluser</mat-option>
+            </mat-select>
+            </mat-form-field>
+        </div>
+
+        <div class="col-6 field">
+            <mat-form-field class="w-full" appearance="outline">
                 <mat-label>DNI</mat-label>
                 <input formControlName="dni" matInput type="text" name="dni">
                 <mat-error *ngIf="dniControl.hasError('required')">
@@ -14,7 +24,7 @@
                 </mat-error>
             </mat-form-field>
         </div>
-
+        
         <div class="col-6 field">
             <mat-form-field class="w-full" appearance="outline">
                 <mat-label>Nombre</mat-label>
@@ -24,9 +34,6 @@
                 </mat-error>
                 <mat-error *ngIf="nameControl.hasError('minlength')">
                     El nombre debe tener al menos {{nameControl.errors?.['minlength']?.requiredLength}} caracteres
-                </mat-error>
-                <mat-error *ngIf="nameControl.hasError('noJuan ')">
-                    El nombre no puede ser Juan.
                 </mat-error>
             </mat-form-field>
         </div>
@@ -68,7 +75,7 @@
             </mat-form-field>
         </div>
 
-        <div class="col-6 field">
+        <div class="col-12 field">
             <mat-form-field class="w-full" appearance="outline">
                 <mat-label>Password</mat-label>
                 <input formControlName="password" matInput type="password" name="password">

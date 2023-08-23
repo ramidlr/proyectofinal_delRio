@@ -23,6 +23,7 @@ export class UsersTableComponent {
     'fullName',
     'email',
     'course',
+    'role',
     'actions',
   ];
 

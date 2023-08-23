@@ -40,7 +40,8 @@ describe('AuthService', () => {
             password: 'lknaslfkKK2',
             token: '1rjn1jnr2orinjnqkrwjn',
             dni: '36169523',
-            course: 'Angular'
+            course: 'Angular',
+            role: 'admin'
         }
 
         const mockResponse: User[] = [mockUser]

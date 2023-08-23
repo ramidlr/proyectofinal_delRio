@@ -10,7 +10,8 @@ export class UserMockService {
       email: 'mail@mail.com',
       course: 'Angular',
       password: '123456',
-      token: ''
+      token: '',
+      role: 'admin'
     },
     {
       id: 2,
@@ -20,20 +21,9 @@ export class UserMockService {
       email: 'zabaleta@gmail.com',
       course: 'UX',
       password: '123456',
-      token: ''
-
-    },
-    {
-      id: 3,
-      dni: '40009087',
-      name: 'Jonathan',
-      surname: 'Gonzalez',
-      email: 'j_gonzalez90@hotmail.com',
-      course: 'React',
-      password: '123456',
-      token: ''
-
-    },
+      token: '',
+      role: 'normaluser'
+    }
   ];
 
   getUsers(): User[] {

@@ -7,6 +7,7 @@ export interface User {
   course: any;
   password: string;
   token: string;
+  role: "admin" | 'normaluser';
 }
 
 export interface CreateUserData {
@@ -24,6 +25,7 @@ export interface UpdateUserData {
   email?: string;
   course?: any;
   password?: string;
+  token?: string;
 }
 
 

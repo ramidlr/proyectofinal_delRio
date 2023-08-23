@@ -32,7 +32,8 @@ import { LetragrandeDirective } from './directives/letragrande.directive';
     MatTableModule,
     MatSelectModule,
     FullNamePipe,
-    LetragrandeDirective
+    LetragrandeDirective,
+    MatSelectModule
   ]
 })
 export class SharedModule { }

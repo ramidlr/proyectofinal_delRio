@@ -25,8 +25,7 @@ export class UserFormDialogComponent {
   ]);
   nameControl = new FormControl<string | null>(null, [
     Validators.required,
-    Validators.minLength(3),
-    this.noJuanValidator(),
+    Validators.minLength(3)
   ]);
   surnameControl = new FormControl<string | null>(null, [
     Validators.required,
@@ -43,6 +42,8 @@ export class UserFormDialogComponent {
     Validators.minLength(8),
   ]);
 
+  roleControl = new FormControl<string | null>(null, Validators.required)
+
   userForm = new FormGroup({
     dni: this.dniControl,
     name: this.nameControl,
@@ -50,26 +51,10 @@ export class UserFormDialogComponent {
     email: this.emailControl,
     course: this.courseControl,
     password: this.passwordControl,
+    role: this.roleControl,
   });
 
   matcher = new ErrorStateMatcher();
-
-  noJuanValidator(): ValidatorFn {
-    return (control: AbstractControl): ValidationErrors | null => {
-      if (control instanceof FormControl) {
-        if (
-          typeof control.value === 'string' &&
-          control.value?.toLowerCase().includes('juan')
-        ) {
-          return {
-            noJuan: true,
-          };
-        }
-      }
-
-      return null;
-    };
-  }
 
   constructor(
     private dialogRef: MatDialogRef<UserFormDialogComponent>,
@@ -83,6 +68,7 @@ export class UserFormDialogComponent {
       this.emailControl.setValue(this.data.email);
       this.courseControl.setValue(this.data.course);
       this.passwordControl.setValue(this.data.password);
+      this.roleControl.setValue(this.data.role);
     }
   }
 
@@ -90,7 +76,14 @@ export class UserFormDialogComponent {
     if (this.userForm.invalid) {
       this.userForm.markAllAsTouched();
     } else {
-      this.dialogRef.close(this.userForm.value);
+      const payload: any = {
+        ...this.userForm.value
+      }
+      if (this.editingUser) { 
+        payload['token'] = this.editingUser.token
+      }
+
+      this.dialogRef.close(payload);
     }
   }
 }
