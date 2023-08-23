@@ -3,8 +3,9 @@ import { createActionGroup, emptyProps, props } from '@ngrx/store';
 export const CoursesActions = createActionGroup({
   source: 'Courses',
   events: {
-    'Load Coursess': emptyProps(),
-    
-    
+    'Load Courses': emptyProps(),
+    'Load Course Detail': props<{ courseId: number }>()
+
+
   }
 });

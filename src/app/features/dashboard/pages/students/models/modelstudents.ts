@@ -7,6 +7,7 @@ export interface Student {
   course: any;
   password: string;
   token: string;
+  courseId: number
 }
 
 export interface CreateStudentData {
@@ -15,6 +16,7 @@ export interface CreateStudentData {
   surname: string;
   email: string;
   course: any;
+  courseId: number
   password: string;
 }
 export interface UpdateStudentData {
@@ -23,6 +25,7 @@ export interface UpdateStudentData {
   surname?: string;
   email?: string;
   course?: any;
+  courseId?: number
   password?: string;
 }
 

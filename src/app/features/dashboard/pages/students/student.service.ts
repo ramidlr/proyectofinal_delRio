@@ -51,6 +51,7 @@ export class StudentService {
   }
 
 
+
   createStudent(payload: CreateStudentData): void {
     const token = generateRandomString(20);
 
@@ -81,6 +82,11 @@ export class StudentService {
       })
 
   }
+
+  getStudentsByCourseId(courseId: number): Observable<Student[]> {
+    return this.httpClient.get<Student[]>(environment.baseApiUrl + `/students?courseId=${courseId}`)
+  }
+
 
 
 

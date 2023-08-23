@@ -48,7 +48,6 @@
       "id": 5
     }
   ],
-  "courses": [],
   "goals": [],
   "students": [
     {
@@ -56,8 +55,9 @@
       "name": "ramiro",
       "surname": "DEL RIO",
       "email": "mail@mail.com",
-      "course": "CS50",
+      "course": "Harvard CS50",
       "password": "12345678",
+      "courseId": 4,
       "id": 1
     },
     {
@@ -68,6 +68,7 @@
       "course": "Angular",
       "password": "Pa$$w0rd!",
       "token": "124080u124hqoasdhfaoihasf",
+      "courseId": 1,
       "id": 2
     },
     {
@@ -78,6 +79,7 @@
       "course": "React",
       "password": "Pa$$w0rd!",
       "token": "12408aaaaaohfaoihasf",
+      "courseId": 2,
       "id": 3
     },
     {
@@ -88,6 +90,7 @@
       "course": "UX",
       "password": "Pa$$w0rd!",
       "token": "124080lknaslfknfaoihasf",
+      "courseId": 3,
       "id": 4
     },
     {
@@ -97,7 +100,8 @@
       "email": "hola@soy.com",
       "course": "React",
       "password": "Blackparde1029",
+      "courseId": 2,
       "id": 6
     }
-  ]
+  ],
 }
