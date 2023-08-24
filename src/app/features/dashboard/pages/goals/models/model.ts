@@ -7,7 +7,7 @@ export interface Goal {
 export interface CreateGoalData {
     id: number;
     name: string;
-    description: string;
+    description: string
 }
 
 export interface UpdateGoalData {

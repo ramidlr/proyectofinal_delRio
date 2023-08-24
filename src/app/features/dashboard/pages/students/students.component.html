@@ -2,7 +2,7 @@
 
 <div class="buttons">
     <div class="mb-2">
-        <button (click)="onCreateStudent()" mat-flat-button color="primary" type="button">Add
+        <button [disabled]="!(isAdmin$ | async)" (click)="onCreateStudent()" mat-flat-button color="primary" type="button">Add
             <mat-icon>add</mat-icon>
         </button>
     </div>

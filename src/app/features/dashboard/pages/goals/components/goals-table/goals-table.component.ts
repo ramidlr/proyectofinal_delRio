@@ -12,6 +12,7 @@ export interface GoalElement {
   styleUrls: ['./goals-table.component.scss']
 })
 export class GoalsTableComponent {
+
   displayedColumns: string[] = [
     'id',
     'name',
@@ -27,4 +28,6 @@ export class GoalsTableComponent {
 
   @Output()
   editGoal = new EventEmitter<Goal>();
+
+
 }

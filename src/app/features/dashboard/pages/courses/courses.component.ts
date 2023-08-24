@@ -4,6 +4,7 @@ import { CoursesActions } from './store/courses.actions';
 import { Observable } from 'rxjs';
 import { Course } from './models/modelcourses';
 import { selectCoursesArray } from './store/courses.selectors';
+import { selectAuthUserAdmin } from 'src/app/store/auth/auth.selector';
 
 @Component({
   selector: 'app-courses',
@@ -15,8 +16,11 @@ import { selectCoursesArray } from './store/courses.selectors';
 
 export class CoursesComponent implements OnInit {
   courses$: Observable<Course[]>;
+  public isAdmin$: Observable<boolean>;
+
 
   constructor(private store: Store) {
+    this.isAdmin$ = this.store.select(selectAuthUserAdmin)
     this.courses$ = this.store.select(selectCoursesArray);
   }
 

@@ -5,6 +5,8 @@ import { NotifierService } from 'src/app/core/services/notifier.service';
 import { Goal } from './models/model';
 import { GoalFormDialogComponent } from './components/goal-form-dialog/goal-form-dialog.component';
 import { GoalsService } from './goals.service';
+import { Store } from '@ngrx/store';
+import { selectAuthUserAdmin } from '../../../../store/auth/auth.selector';
 
 @Component({
   selector: 'app-goals',
@@ -14,13 +16,16 @@ import { GoalsService } from './goals.service';
 export class GoalsComponent {
 
   public goals: Observable<Goal[]>;
+  public isAdmin$: Observable<boolean>;
 
 
   constructor(
     private matDialog: MatDialog,
     private goalsService: GoalsService,
     private notifier: NotifierService,
+    private store: Store
   ) {
+    this.isAdmin$ = this.store.select(selectAuthUserAdmin)
     this.goalsService.loadGoals();
     this.goals = this.goalsService.getGoals();
   }

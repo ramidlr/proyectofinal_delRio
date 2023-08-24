@@ -46,6 +46,7 @@ export class UsersComponent {
             email: v.email,
             course: v.course,
             password: v.password,
+            role: v.role,
           });
         }
       },

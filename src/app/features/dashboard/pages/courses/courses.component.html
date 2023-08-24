@@ -18,10 +18,10 @@
             <button [routerLink]="course.id" mat-icon-button color="primary">
                 <mat-icon>visibility</mat-icon>
             </button>
-            <button mat-icon-button color="primary">
+            <button [disabled]="!(isAdmin$ | async)" mat-icon-button color="primary">
                 <mat-icon>edit</mat-icon>
             </button>
-            <button mat-icon-button color="warn">
+            <button [disabled]="!(isAdmin$ | async)" mat-icon-button color="warn">
                 <mat-icon>delete</mat-icon>
             </button>
         </td>
