@@ -23,7 +23,6 @@
       "id": 2
     }
   ],
-  "goals": [],
   "students": [
     {
       "dni": "36169523",
@@ -71,7 +70,7 @@
     {
       "dni": "101010101010",
       "name": "carlos sanchez",
-      "surname": "PEREZ perez",
+      "surname": "PEREZ",
       "email": "hola@soy.com",
       "course": "React",
       "password": "Blackparde1029",
