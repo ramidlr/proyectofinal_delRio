@@ -1,3 +1,8 @@
+<h2 appLetragrande>Alumnos inscritos a {{ courseName$ | async}}</h2>
+
+<button routerLink=".." mat-icon-button>
+    <mat-icon>arrow_back_ios</mat-icon>
+    </button> 
 <table mat-table [dataSource]="students" class="mat-elevation-z8">
 
     <!-- ID -->
