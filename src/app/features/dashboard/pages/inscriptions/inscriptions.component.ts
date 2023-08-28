@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { Store } from '@ngrx/store';
 import { Observable } from 'rxjs';
 import { InscriptionActions } from './store/inscription.actions';
+import { InscriptionWithCourseAndStudent } from './models';
+import { selectInscriptions } from './store/inscription.selectors';
 
 
 @Component({
@@ -10,9 +12,11 @@ import { InscriptionActions } from './store/inscription.actions';
   styles: [],
 })
 export class InscriptionsComponent implements OnInit {
-  displayedColumns = ['id', 'product', 'buyer', 'total'];
-  
+  displayedColumns = ['id inscription', 'alumno', 'id alumno', 'curso', 'precio'];
+  inscriptions$: Observable<InscriptionWithCourseAndStudent[]>
+
   constructor(private store: Store) {
+    this.inscriptions$ =  this.store.select(selectInscriptions)
 
     
   }
