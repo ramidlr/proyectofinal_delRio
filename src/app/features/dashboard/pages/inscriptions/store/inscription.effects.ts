@@ -4,7 +4,7 @@ import { catchError, map, concatMap } from 'rxjs/operators';
 import { Observable, EMPTY, of } from 'rxjs';
 import { InscriptionActions } from './inscription.actions';
 import { HttpClient } from '@angular/common/http';
-import { Inscription, InscriptionWithCourseAndStudent } from '../models';
+import { InscriptionWithCourseAndStudent } from '../models';
 import { environment } from 'src/environments/environment';
 
 
@@ -28,7 +28,7 @@ export class InscriptionEffects {
   constructor(private actions$: Actions,
     private httpClient: HttpClient) {}
 
-    private getInscriptionsFromDB(): Observable<InscriptionWithCourseAndStudent> {
-      return this.httpClient.get<InscriptionWithCourseAndStudent>(environment.baseApiUrl + '/inscriptions?_expand=student&_expand=course')
+    private getInscriptionsFromDB(): Observable<InscriptionWithCourseAndStudent[]> {
+      return this.httpClient.get<InscriptionWithCourseAndStudent[]>(environment.baseApiUrl + '/inscriptions?_expand=student&_expand=course')
     }
 }
