@@ -7,6 +7,7 @@ export interface User {
   course: any;
   password: string;
   token: string;
+  role: 'admin' | 'user' 
 }
 
 export interface CreateUserData {
@@ -16,7 +17,10 @@ export interface CreateUserData {
   email: string;
   course: any;
   password: string;
+  role: string,
 }
+
+
 export interface UpdateUserData {
   dni?: string;
   name?: string;
@@ -24,6 +28,8 @@ export interface UpdateUserData {
   email?: string;
   course?: any;
   password?: string;
+  role?: string;
+  token?: string
 }
 
 

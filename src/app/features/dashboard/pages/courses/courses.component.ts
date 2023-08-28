@@ -16,7 +16,7 @@ export class CoursesComponent implements OnInit {
 
   constructor(private store: Store,
     // private matDialog: MatDialog,
-    // // private courseService: CourseService,
+    // private courseService: CourseService,
     // private notifier: NotifierService
    ) {
      // this.courseService.loadCourses();

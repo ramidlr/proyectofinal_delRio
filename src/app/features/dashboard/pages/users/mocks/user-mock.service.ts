@@ -7,33 +7,23 @@ export class UserMockService {
       dni: '90882735',
       name: 'Usuario Falso',
       surname: 'de Testing',
-      email: 'mail@mail.com',
+      email: 'admin@dada.com',
       course: 'Angular',
       password: '123456',
-      token: ''
+      token: '',
+      role: 'admin'
     },
     {
       id: 2,
       dni: '38992781',
       name: 'testing',
       surname: 'Zjskkjajs',
-      email: 'zabaleta@gmail.com',
+      email: 'user@sasa.com',
       course: 'UX',
       password: '123456',
-      token: ''
-
-    },
-    {
-      id: 3,
-      dni: '40009087',
-      name: 'Jonathan',
-      surname: 'Gonzalez',
-      email: 'j_gonzalez90@hotmail.com',
-      course: 'React',
-      password: '123456',
-      token: ''
-
-    },
+      token: '',
+      role: 'user'
+    }
   ];
 
   getUsers(): User[] {

@@ -1,9 +1,9 @@
 <mat-nav-list>
     <div class="link-with-icon"><mat-icon>home</mat-icon><a routerLink="home" mat-list-item>HOME</a></div>
-    <div class="link-with-icon"><mat-icon>groups</mat-icon><a routerLink="usuarios" mat-list-item>USUARIOS</a></div>
+    <div *ngIf="selectIsAdmin$ | async" class="link-with-icon"><mat-icon>groups</mat-icon><a routerLink="usuarios" mat-list-item>USUARIOS</a></div>
     <div class="link-with-icon"><mat-icon>school</mat-icon><a routerLink="cursos" mat-list-item>CURSOS</a></div>
-    <div class="link-with-icon"><mat-icon>class</mat-icon><a routerLink="clases" mat-list-item>CLASES</a></div>
     <div class="link-with-icon"><mat-icon>groups</mat-icon><a routerLink="alumnos" mat-list-item>ALUMNOS</a></div>
+    <div class="link-with-icon"><mat-icon>class</mat-icon><a routerLink="clases" mat-list-item>CLASES</a></div>
     <div class="link-with-icon"><mat-icon>face_3</mat-icon><a routerLink="counter" mat-list-item>CONTADOR</a></div>
     <div class="link-with-icon"><mat-icon>logout</mat-icon><a (click)="logout()" mat-list-item>CERRAR</a></div>
 </mat-nav-list>

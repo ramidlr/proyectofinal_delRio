@@ -68,6 +68,10 @@ export class UserService {
         }
       })
   }
+
+  
+
+
   editUser(id: number, usuarioActualizado: UpdateUserData): void {
     this.httpClient.put(environment.baseApiUrl + '/users/' + id, usuarioActualizado).subscribe({
       next: () => this.loadUsers(),

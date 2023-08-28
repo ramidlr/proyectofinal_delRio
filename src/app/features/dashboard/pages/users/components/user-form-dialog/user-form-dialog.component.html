@@ -54,6 +54,20 @@
 
         <div class="col-6 field">
             <mat-form-field class="w-full" appearance="outline">
+                <mat-label>Elige un rol</mat-label>
+                <mat-select [formControl]="roleControl" [errorStateMatcher]="matcher" placeholder="Rol a elegir">
+                    <mat-option value="admin">Admin</mat-option>
+                    <mat-option value="user">User</mat-option>
+                </mat-select>
+                <mat-error *ngIf="courseControl.hasError('required')">Este campo es obligatorio</mat-error>
+                <mat-error *ngIf="courseControl.hasError('pattern') && !courseControl.hasError('required')">
+                    Debes elegir un rol
+                </mat-error>
+            </mat-form-field>
+        </div>
+
+        <div class="col-6 field">
+            <mat-form-field class="w-full" appearance="outline">
                 <mat-label>Elige un curso</mat-label>
                 <mat-select [formControl]="courseControl" [errorStateMatcher]="matcher" placeholder="Curso a elegir">
                     <mat-option value="Angular">Angular</mat-option>
@@ -68,7 +82,7 @@
             </mat-form-field>
         </div>
 
-        <div class="col-6 field">
+        <div class="col-12 field">
             <mat-form-field class="w-full" appearance="outline">
                 <mat-label>Password</mat-label>
                 <input formControlName="password" matInput type="password" name="password">
@@ -87,7 +101,3 @@
     <button mat-button mat-dialog-close>Cancelar</button>
     <button mat-button (click)="onSubmit()">Confirmar</button>
 </div>
-
-<!-- <pre>
-    {{userForm.value | json}}
-</pre> -->

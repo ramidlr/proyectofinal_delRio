@@ -8,6 +8,7 @@ export interface UserElement {
   surname: string;
   email: string;
   course: string;
+  role: 'admin' | 'user';
   password: string;
 }
 
@@ -23,6 +24,7 @@ export class UsersTableComponent {
     'fullName',
     'email',
     'course',
+    'role',
     'actions',
   ];
 
