@@ -24,7 +24,7 @@
     }
   ],
   "courses": [
-    [
+    
       {
         "id": 1,
         "name": "Angular",
@@ -53,8 +53,7 @@
         "credits": 40,
         "price": 300
       }
-    ]
-  ],
+    ],
   "goals": [],
   "students": [
     {
