@@ -1,5 +1,8 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { Student } from '../../models/modelstudents';
+import { Store } from '@ngrx/store';
+import { selectIsAdmin } from 'src/app/store/auth/auth.selector';
+import { Observable } from 'rxjs';
 
 export interface StudentElement {
   id: number;
@@ -17,6 +20,15 @@ export interface StudentElement {
   styleUrls: ['./students-table.component.scss'],
 })
 export class StudentsTableComponent {
+  public isAdmin$: Observable<boolean>
+
+  constructor(
+    private store: Store
+  ) {
+    this.isAdmin$ = this.store.select(selectIsAdmin)}
+
+
+
   displayedColumns: string[] = [
     'id',
     'dni',

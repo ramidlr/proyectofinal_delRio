@@ -5,6 +5,8 @@ import { Student } from './models/modelstudents';
 import { StudentService } from './student.service';
 import { NotifierService } from 'src/app/core/services/notifier.service';
 import { Observable, map } from 'rxjs';
+import { Store } from '@ngrx/store';
+import { selectIsAdmin } from 'src/app/store/auth/auth.selector';
 
 @Component({
   selector: 'app-students',
@@ -14,12 +16,15 @@ import { Observable, map } from 'rxjs';
 export class StudentsComponent {
   public students: Observable<Student[]>;
   public isLoading$: Observable<boolean>;
+  public isAdmin$: Observable<boolean>
 
   constructor(
     private matDialog: MatDialog,
     private studentService: StudentService,
-    private notifier: NotifierService
+    private notifier: NotifierService,
+    private store: Store
   ) {
+    this.isAdmin$ = this.store.select(selectIsAdmin)
     this.studentService.loadStudents();
     this.isLoading$ = this.studentService.isLoading$;
     this.students = this.studentService.getStudents().pipe(

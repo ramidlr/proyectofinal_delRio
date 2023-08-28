@@ -37,7 +37,7 @@ export class GoalsComponent {
           this.goalsService.createGoal({
             id: v.id,
             name: v.name,
-            description: v.description,
+            studentComments: v.studentComments,
           });
         }
       },

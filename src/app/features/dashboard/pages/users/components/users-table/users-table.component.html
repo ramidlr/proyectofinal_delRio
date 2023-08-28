@@ -48,11 +48,11 @@
         <mat-icon color="primary">visibility</mat-icon>
       </button>
 
-      <button (click)="editUser.emit(user)"mat-icon-button color="primary">
+      <button [disabled]="!(isAdmin$ | async)" (click)="editUser.emit(user)"mat-icon-button color="primary">
         <mat-icon color="primary">edit</mat-icon>
       </button>
 
-      <button (click)="deleteUser.emit(user)" mat-icon-button color="warn">
+      <button [disabled]="!(isAdmin$ | async)" (click)="deleteUser.emit(user)" mat-icon-button color="warn">
         <mat-icon>delete</mat-icon>
       </button>
 

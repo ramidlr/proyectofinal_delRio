@@ -1,5 +1,8 @@
 import { Component, Input, Output, EventEmitter } from '@angular/core';
 import { User } from '../../models/modelusers';
+import { Observable } from 'rxjs';
+import { Store } from '@ngrx/store';
+import { selectIsAdmin } from 'src/app/store/auth/auth.selector';
 
 export interface UserElement {
   id: number;
@@ -18,6 +21,10 @@ export interface UserElement {
   styleUrls: ['./users-table.component.scss'],
 })
 export class UsersTableComponent {
+
+  public isAdmin$: Observable<boolean>
+
+
   displayedColumns: string[] = [
     'id',
     'dni',
@@ -27,6 +34,11 @@ export class UsersTableComponent {
     'role',
     'actions',
   ];
+
+  constructor(
+    private store: Store
+  ) {
+    this.isAdmin$ = this.store.select(selectIsAdmin)}
 
   @Input()
   dataSource: User[] = [];

@@ -15,7 +15,7 @@ export class GoalsTableComponent {
   displayedColumns: string[] = [
     'id',
     'name',
-    'description',
+    'studentComments',
     'actions'
   ];
 

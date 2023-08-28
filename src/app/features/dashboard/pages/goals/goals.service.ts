@@ -7,21 +7,21 @@ const GOALS_DB: Observable<Goal[]> = of([
   {
     id: 1,
     name: 'Introduccion al Curso',
-    description: 'Him rendered may attended concerns.  On inhabiting diminution discovered as. Did friendly eat breeding building few nor. Object he barton no effect played valley afford. Period so to oppose we little seeing or branch. Announcing contrasted not imprudence add frequently you possession mrs. Period saw his houses square and misery.',
+    studentComments: 'Him rendered may attended concerns.  On inhabiting diminution discovered as. Did friendly eat breeding building few nor. Object he barton no effect played valley afford. Period so to oppose we little seeing or branch. Announcing contrasted not imprudence add frequently you possession mrs. Period saw his houses square and misery.',
   }, {
     id: 2,
     name: 'Introduccion a React',
-    description: 'Him rendered may attended concerns.  On inhabiting diminution discovered as. Did friendly eat breeding building few nor. Object he barton no effect played valley afford. Period so to oppose we little seeing or branch. Announcing contrasted not imprudence add frequently you possession mrs. Period saw his houses square and misery.',
+    studentComments: 'Him rendered may attended concerns.  On inhabiting diminution discovered as. Did friendly eat breeding building few nor. Object he barton no effect played valley afford. Period so to oppose we little seeing or branch. Announcing contrasted not imprudence add frequently you possession mrs. Period saw his houses square and misery.',
   },
   {
     id: 3,
     name: 'rxjs: Servicios y data asincronica',
-    description: 'Him rendered may attended concerns.  On inhabiting diminution discovered as. Did friendly eat breeding building few nor. Object he barton no effect played valley afford. Period so to oppose we little seeing or branch. Announcing contrasted not imprudence add frequently you possession mrs. Period saw his houses square and misery.',
+    studentComments: 'Him rendered may attended concerns.  On inhabiting diminution discovered as. Did friendly eat breeding building few nor. Object he barton no effect played valley afford. Period so to oppose we little seeing or branch. Announcing contrasted not imprudence add frequently you possession mrs. Period saw his houses square and misery.',
   },
   {
     id: 4,
     name: 'Entrevistas Tecnicas: Parte (iii)',
-    description: 'Him rendered may attended concerns.  On inhabiting diminution discovered as. Did friendly eat breeding building few nor. Object he barton no effect played valley afford. Period so to oppose we little seeing or branch. Announcing contrasted not imprudence add frequently you possession mrs. Period saw his houses square and misery.',
+    studentComments: 'Him rendered may attended concerns.  On inhabiting diminution discovered as. Did friendly eat breeding building few nor. Object he barton no effect played valley afford. Period so to oppose we little seeing or branch. Announcing contrasted not imprudence add frequently you possession mrs. Period saw his houses square and misery.',
   }
 ]);
 

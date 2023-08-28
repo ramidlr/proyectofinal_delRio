@@ -2,7 +2,7 @@
 <div mat-dialog-content>
     <form [formGroup]="goalForm" class="grid">
 
-        <div class="col-6 field">
+        <div class="col-12 field">
             <mat-form-field class="w-full" appearance="outline">
                 <mat-label>Nombre</mat-label>
                 <input formControlName="name" matInput type="text" name="name">
@@ -15,15 +15,15 @@
             </mat-form-field>
         </div>
 
-        <div class="col-6 field">
+        <div class="col-12 field">
             <mat-form-field class="w-full" appearance="outline">
                 <mat-label>Descripcion</mat-label>
-                <input formControlName="description" matInput type="text" name="description">
-                <mat-error *ngIf="descriptionControl.hasError('required')">
+                <input formControlName="studentComments" matInput type="text" name="studentComments">
+                <mat-error *ngIf="studentCommentsControl.hasError('required')">
                     Completa el campo para continuar
                 </mat-error>
-                <mat-error *ngIf="descriptionControl.hasError('minlength')">
-                    La descripcion debe tener al menos {{descriptionControl.errors?.['minlength']?.requiredLength}}
+                <mat-error *ngIf="studentCommentsControl.hasError('minlength')">
+                    Los comentarios deben ser de al menos {{studentCommentsControl.errors?.['minlength']?.requiredLength}}
                     caracteres
                 </mat-error>
             </mat-form-field>

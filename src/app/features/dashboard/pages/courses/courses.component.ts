@@ -4,6 +4,7 @@ import { Observable } from 'rxjs';
 import { Course } from './models';
 import { selectCoursesArray } from './store/courses.selectors';
 import { CoursesActions } from './store/courses.actions';
+import { selectIsAdmin } from 'src/app/store/auth/auth.selector';
 
 @Component({
   selector: 'app-courses',
@@ -14,6 +15,8 @@ import { CoursesActions } from './store/courses.actions';
 export class CoursesComponent implements OnInit {
   courses$: Observable<Course[]>;
 
+  public isAdmin$: Observable<boolean>
+
   constructor(private store: Store,
     // private matDialog: MatDialog,
     // private courseService: CourseService,
@@ -22,7 +25,8 @@ export class CoursesComponent implements OnInit {
      // this.courseService.loadCourses();
     // this.courses = this.courseService.getCourses();
     this.courses$ = this.store.select(selectCoursesArray);
-  }
+    this.isAdmin$ = this.store.select(selectIsAdmin)
+ }
 
   displayedColumns = [    'id',
   'name',

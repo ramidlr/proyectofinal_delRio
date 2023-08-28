@@ -17,14 +17,14 @@ export class GoalFormDialogComponent {
     Validators.required,
     Validators.minLength(3),
   ]);
-  descriptionControl = new FormControl<string | null>(null, [
+  studentCommentsControl = new FormControl<string | null>(null, [
     Validators.required,
     Validators.minLength(10),
   ]);
 
   goalForm = new FormGroup({
     name: this.nameControl,
-    description: this.descriptionControl,
+    studentComments: this.studentCommentsControl,
   });
 
   matcher = new ErrorStateMatcher();
@@ -36,7 +36,7 @@ export class GoalFormDialogComponent {
     if (this.data) {
       this.editingGoal = this.data;
       this.nameControl.setValue(this.data.name);
-      this.descriptionControl.setValue(this.data.description);
+      this.studentCommentsControl.setValue(this.data.studentComments);
     }
   }
 
