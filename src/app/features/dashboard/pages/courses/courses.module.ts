@@ -9,12 +9,14 @@ import { EffectsModule } from '@ngrx/effects';
 import { CoursesEffects } from './store/courses.effects';
 import { coursesFeature } from './store/courses.reducer';
 import { StoreModule } from '@ngrx/store';
+import { CourseDetailComponent } from './pages/course-detail/course-detail.component';
 
 
 
 @NgModule({
   declarations: [
     CoursesComponent,
+    CourseDetailComponent,
     // CourseFormDialogComponent,
     // CoursesTableComponent,
   ],
