@@ -26,7 +26,7 @@ export const reducer = createReducer(
   on(CoursesActions.loadCourseDetail, (state, actions) => {
     return {
       ...state, 
-      courseDetail: COURSES_MOCK.find((c) => c.id == actions.courseId) || null,
+      courseDetail: COURSES_MOCK.find((c) => c.id == actions.categoryId) || null,
     }
   })
 

@@ -83,8 +83,8 @@ export class StudentService {
   }
 
 
-  getStudentsByCourseId(courseId: number): Observable<Student[]> {
-    return this.httpClient.get<Student[]>(environment.baseApiUrl + `/students?courseId=${courseId}`)
+  getStudentsByCategoryId(categoryId: number): Observable<Student[]> {
+    return this.httpClient.get<Student[]>(environment.baseApiUrl + `/students?categoryId=${categoryId}`)
   }
 
 

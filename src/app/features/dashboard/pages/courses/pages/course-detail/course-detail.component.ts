@@ -34,8 +34,8 @@ export class CourseDetailComponent implements OnInit {
     }
 
 ngOnInit(): void {
-  this.store.dispatch(CoursesActions.loadCourseDetail({ courseId: this.activatedRoute.snapshot.params['id']}))
-  this.studentService.getStudentsByCourseId(this.activatedRoute.snapshot.params['id']).subscribe({
+  this.store.dispatch(CoursesActions.loadCourseDetail({ categoryId: this.activatedRoute.snapshot.params['id']}))
+  this.studentService.getStudentsByCategoryId(this.activatedRoute.snapshot.params['id']).subscribe({
     next: (students) => (this.students = students)
   })
 }

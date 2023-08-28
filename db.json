@@ -65,7 +65,7 @@
       "course": "CS50",
       "password": "12345678",
       "id": 1,
-      "courseId": 1
+      "categoryId": 1
     },
     {
       "dni": "Sapiente numquam del",
@@ -76,7 +76,7 @@
       "password": "Pa$$w0rd!",
       "token": "124080u124hqoasdhfaoihasf",
       "id": 2,
-      "courseId": 2
+      "categoryId": 2
     },
     {
       "dni": "Et omnis doloremque ",
@@ -87,7 +87,7 @@
       "password": "Pa$$w0rd!",
       "token": "12408aaaaaohfaoihasf",
       "id": 3,
-      "courseId": 4
+      "categoryId": 4
     },
     {
       "dni": "Animi laborum totam",
@@ -98,7 +98,7 @@
       "password": "Pa$$w0rd!",
       "token": "124080lknaslfknfaoihasf",
       "id": 4,
-      "courseId": 3
+      "categoryId": 3
     },
     {
       "dni": "101010101010",
@@ -108,7 +108,7 @@
       "course": "React",
       "password": "Blackparde1029",
       "id": 6,
-      "courseId": 1
+      "categoryId": 1
     },
     {
       "dni": "Accusantium elit im",
@@ -118,10 +118,11 @@
       "course": "UX",
       "password": "Pa$$w0rd!asdasd",
       "token": "7HfB0Kqq8t8F2Ft0p2kr",
-      "id": 7
+      "id": 7,
+      "categoryId": 1
     }
   ],
-  "sales": [
+  "inscriptions": [
     {
       "id": 1,
       "studentId": 1,
@@ -130,17 +131,17 @@
     {
       "id": 2,
       "studentId": 2,
-      "courseId": 1
+      "courseId": 4
     },
     {
       "id": 3,
       "studentId": 3,
-      "courseId": 1
+      "courseId": 2
     },
     {
       "id": 4,
       "studentId": 3,
-      "courseId": 4
+      "courseId": 3
     }
   ]
 }

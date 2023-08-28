@@ -7,7 +7,7 @@ export interface Student {
   course: any;
   password: string;
   token: string;
-  courseId: number;
+  categoryId: number;
 }
 
 export interface CreateStudentData {

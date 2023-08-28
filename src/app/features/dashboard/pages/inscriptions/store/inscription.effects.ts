@@ -3,6 +3,9 @@ import { Actions, createEffect, ofType } from '@ngrx/effects';
 import { catchError, map, concatMap } from 'rxjs/operators';
 import { Observable, EMPTY, of } from 'rxjs';
 import { InscriptionActions } from './inscription.actions';
+import { HttpClient } from '@angular/common/http';
+import { Inscription, InscriptionWithCourseAndStudent } from '../models';
+import { environment } from 'src/environments/environment';
 
 
 @Injectable()
@@ -14,7 +17,7 @@ export class InscriptionEffects {
       ofType(InscriptionActions.loadInscriptions),
       concatMap(() =>
         /** An EMPTY observable only emits completion. Replace with your own observable API request */
-        EMPTY.pipe(
+        this.getInscriptionsFromDB().pipe(
           map(data => InscriptionActions.loadInscriptionsSuccess({ data })),
           catchError(error => of(InscriptionActions.loadInscriptionsFailure({ error }))))
       )
@@ -22,5 +25,10 @@ export class InscriptionEffects {
   });
 
 
-  constructor(private actions$: Actions) {}
+  constructor(private actions$: Actions,
+    private httpClient: HttpClient) {}
+
+    private getInscriptionsFromDB(): Observable<InscriptionWithCourseAndStudent> {
+      return this.httpClient.get<InscriptionWithCourseAndStudent>(environment.baseApiUrl + '/inscriptions?_expand=student&_expand=course')
+    }
 }

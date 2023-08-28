@@ -14,7 +14,10 @@ export const initialState: State = {
 export const reducer = createReducer(
   initialState,
   on(InscriptionActions.loadInscriptions, state => state),
-  on(InscriptionActions.loadInscriptionsSuccess, (state, action) => state),
+  on(InscriptionActions.loadInscriptionsSuccess, (state, action) => {
+  return {
+    data: action.data
+  }}),
   on(InscriptionActions.loadInscriptionsFailure, (state, action) => state),
 );
 

@@ -11,7 +11,7 @@
 //       course: 'Angular',
 //       password: '123456',
 //       token: '',
-//       courseId: 1,
+//       categoryId: 1,
 //     },
 //     {
 //       id: 2,
@@ -22,7 +22,7 @@
 //       course: 'UX',
 //       password: '123456',
 //       token: '',
-//       courseId: 2,
+//       categoryId: 2,
 
 //     },
 //     {
@@ -34,7 +34,7 @@
 //       course: 'React',
 //       password: '123456',
 //       token: '',
-//       courseId: 3,
+//       categoryId: 3,
 
 //     },
 //   ];
