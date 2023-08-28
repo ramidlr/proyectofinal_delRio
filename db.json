@@ -109,6 +109,38 @@
       "password": "Blackparde1029",
       "id": 6,
       "courseId": 1
+    },
+    {
+      "dni": "Accusantium elit im",
+      "name": "Myra Bryant",
+      "surname": "Frank",
+      "email": "vanipexo@mailinator.com",
+      "course": "UX",
+      "password": "Pa$$w0rd!asdasd",
+      "token": "7HfB0Kqq8t8F2Ft0p2kr",
+      "id": 7
+    }
+  ],
+  "sales": [
+    {
+      "id": 1,
+      "studentId": 1,
+      "courseId": 1
+    },
+    {
+      "id": 2,
+      "studentId": 2,
+      "courseId": 1
+    },
+    {
+      "id": 3,
+      "studentId": 3,
+      "courseId": 1
+    },
+    {
+      "id": 4,
+      "studentId": 3,
+      "courseId": 4
     }
   ]
 }
