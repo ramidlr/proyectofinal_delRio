@@ -48,7 +48,36 @@
       "id": 5
     }
   ],
-  "courses": [],
+  "courses": [
+    [
+      {
+          "id": 1,
+          "name": "Angular",
+          "description": "Angular de cero a experto: Online On-Demand",
+          "credits": 40,
+          "price": 120
+        }, {
+          "id": 2,
+          "name": "React",
+          "description": "React Experto: En Vivo",
+          "credits": 43,
+          "price": 250
+        }, {
+          "id": 3,
+          "name": "Full-Stack Developer 2023",
+          "description": "Curso completo de Angular, React, HTML, CSS y proyecto final en empresa",
+          "credits": 60,
+          "price": 1900
+        },
+        {
+          "id": 4,
+          "name": "UX-UI",
+          "description": "Diseno UX - UI: Full-Time Intensivo",
+          "credits": 40,
+          "price": 300
+        }
+  ]
+  ],
   "goals": [],
   "students": [
     {
@@ -58,7 +87,8 @@
       "email": "mail@mail.com",
       "course": "CS50",
       "password": "12345678",
-      "id": 1
+      "id": 1,
+      "courseId": 1
     },
     {
       "dni": "Sapiente numquam del",
@@ -68,7 +98,8 @@
       "course": "Angular",
       "password": "Pa$$w0rd!",
       "token": "124080u124hqoasdhfaoihasf",
-      "id": 2
+      "id": 2,
+      "courseId": 2
     },
     {
       "dni": "Et omnis doloremque ",
@@ -78,7 +109,8 @@
       "course": "React",
       "password": "Pa$$w0rd!",
       "token": "12408aaaaaohfaoihasf",
-      "id": 3
+      "id": 3,
+      "courseId": 4
     },
     {
       "dni": "Animi laborum totam",
@@ -88,7 +120,8 @@
       "course": "UX",
       "password": "Pa$$w0rd!",
       "token": "124080lknaslfknfaoihasf",
-      "id": 4
+      "id": 4,
+      "courseId": 3
     },
     {
       "dni": "101010101010",
@@ -97,7 +130,8 @@
       "email": "hola@soy.com",
       "course": "React",
       "password": "Blackparde1029",
-      "id": 6
+      "id": 6,
+      "courseId": 1
     }
   ]
 }

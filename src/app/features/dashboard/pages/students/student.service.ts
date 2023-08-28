@@ -5,6 +5,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { NotifierService } from 'src/app/core/services/notifier.service';
 import { generateRandomString } from 'src/app/shared/utils/helpers';
 import { environment } from 'src/environments/environment';
+import { Course } from '../courses/models';
 
 
 
@@ -79,13 +80,12 @@ export class StudentService {
       .pipe().subscribe({
         next: (arrayActualizado) => this.loadStudents(),
       })
-
   }
 
 
-
-
-
+  getStudentsByCourseId(courseId: number): Observable<Student[]> {
+    return this.httpClient.get<Student[]>(environment.baseApiUrl + `/students?courseId=${courseId}`)
+  }
 
 
 }
