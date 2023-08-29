@@ -1,60 +1,70 @@
-<!-- <div class="buttons">
-    <div class="mb-2">
-        <button (click)="onCreateCourse()" mat-flat-button color="primary" type="button">Add
-            <mat-icon>add</mat-icon>
-        </button>
-    </div>
-</div> -->
+<h2 appLetragrande>Cursos</h2>
 
-<table mat-table [dataSource]="(courses$ | async) || []" class="mat-elevation-z8">
+<div class="buttons">
+  <div class="mb-2">
+    <button
+      (click)="onCreateCourse()"
+      mat-flat-button
+      color="primary"
+      type="button"
+    >
+      Add
+      <mat-icon>add</mat-icon>
+    </button>
+  </div>
+</div>
 
-    <ng-container matColumnDef="id">
-        <th mat-header-cell *matHeaderCellDef> ID </th>
-        <td mat-cell *matCellDef="let course"> {{course.id}} </td>
-    </ng-container>
+<table
+  mat-table
+  [dataSource]="(courses$ | async) || []"
+  class="mat-elevation-z8"
+>
+  <ng-container matColumnDef="id">
+    <th mat-header-cell *matHeaderCellDef>ID</th>
+    <td mat-cell *matCellDef="let course">{{ course.id }}</td>
+  </ng-container>
 
-    <ng-container matColumnDef="name">
-        <th mat-header-cell *matHeaderCellDef> Curso </th>
-        <td mat-cell *matCellDef="let course"> {{course.name}} </td>
-    </ng-container>
+  <ng-container matColumnDef="name">
+    <th mat-header-cell *matHeaderCellDef>Curso</th>
+    <td mat-cell *matCellDef="let course">{{ course.name }}</td>
+  </ng-container>
 
-    <ng-container matColumnDef="description">
-        <th mat-header-cell *matHeaderCellDef> Descripcion </th>
-        <td mat-cell *matCellDef="let course"> {{course.description}} </td>
-    </ng-container>
+  <ng-container matColumnDef="description">
+    <th mat-header-cell *matHeaderCellDef>Descripcion</th>
+    <td mat-cell *matCellDef="let course">{{ course.description }}</td>
+  </ng-container>
 
+  <ng-container matColumnDef="credits">
+    <th mat-header-cell *matHeaderCellDef>Creditos</th>
+    <td mat-cell *matCellDef="let course">{{ course.credits }}</td>
+  </ng-container>
 
-    <ng-container matColumnDef="credits">
-        <th mat-header-cell *matHeaderCellDef> Creditos </th>
-        <td mat-cell *matCellDef="let course"> {{course.credits}} </td>
-    </ng-container>
+  <ng-container matColumnDef="price">
+    <th mat-header-cell *matHeaderCellDef>Precio</th>
+    <td mat-cell *matCellDef="let course">
+      {{ course.price | currency : "EUR" }}
+    </td>
+  </ng-container>
 
-    <ng-container matColumnDef="price">
-        <th mat-header-cell *matHeaderCellDef> Precio </th>
-        <td mat-cell *matCellDef="let course"> {{course.price | currency: 'EUR' }} </td>
-    </ng-container>
+  <ng-container matColumnDef="actions">
+    <th mat-header-cell *matHeaderCellDef>Acciones</th>
+    <td mat-cell *matCellDef="let course">
+      <button [routerLink]="course.id" mat-icon-button color="primary">
+        <mat-icon>visibility</mat-icon>
+      </button>
+      <button [disabled]="!(isAdmin$ | async)" mat-icon-button color="primary">
+        <mat-icon>edit</mat-icon>
+      </button>
+      <button [disabled]="!(isAdmin$ | async)" mat-icon-button color="warn">
+        <mat-icon>delete</mat-icon>
+      </button>
+    </td>
+  </ng-container>
 
+  <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+  <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
 
-    <ng-container matColumnDef="actions">
-        <th mat-header-cell *matHeaderCellDef> Acciones </th>
-        <td mat-cell *matCellDef="let course">
-
-            <button [routerLink]="course.id" mat-icon-button color="primary">
-                <mat-icon>visibility</mat-icon>
-            </button>
-            <button [disabled]="!(isAdmin$ | async)" mat-icon-button color="primary">
-                <mat-icon>edit</mat-icon>
-            </button>
-            <button [disabled]="!(isAdmin$ | async)" mat-icon-button color="warn">
-                <mat-icon>delete</mat-icon>
-            </button>
-        </td>
-    </ng-container>
-
-    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
-
-    <!--      
+  <!--      
             <button (click)="editCourse.emit(course)" mat-icon-button color="primary">
                 <mat-icon color="primary">edit</mat-icon>
             </button>

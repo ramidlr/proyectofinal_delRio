@@ -7,11 +7,10 @@ export interface Course {
 }
 
 export interface CreateCourseData {
-    id: number;
-    name: string;
-    description: string;
-    credits: number;
-    price: number;
+    name: string | null;
+    description: string | null;
+    credits: number | null;
+    price: number | null;
 }
 
 export interface UpdateCourseData {
@@ -21,3 +20,4 @@ export interface UpdateCourseData {
     credits?: number;
     price?: number;
 }
+

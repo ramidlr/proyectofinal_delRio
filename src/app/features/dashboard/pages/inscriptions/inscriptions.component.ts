@@ -19,12 +19,12 @@ export class InscriptionsComponent implements OnInit {
 
   constructor(private store: Store,
     private matDialog: MatDialog) {
-    this.inscriptions$ =  this.store.select(selectInscriptions)
+    this.inscriptions$ = this.store.select(selectInscriptions)
   }
 
-onAdd(): void {
-  this.matDialog.open(InscriptionDialogComponent)
-}
+  onAdd(): void {
+    this.matDialog.open(InscriptionDialogComponent)
+  }
 
   ngOnInit(): void {
     this.store.dispatch(InscriptionActions.loadInscriptions())

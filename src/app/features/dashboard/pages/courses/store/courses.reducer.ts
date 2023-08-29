@@ -8,11 +8,15 @@ export const coursesFeatureKey = 'courses';
 export interface State {
   courses: Course[],
   courseDetail: Course | null,
+  loading: boolean;
+  error: unknown;
 }
 
 export const initialState: State = {
   courses: [],
   courseDetail: null,
+  error: null,
+  loading: false
 };
 
 export const reducer = createReducer(
@@ -20,12 +24,26 @@ export const reducer = createReducer(
   on(CoursesActions.loadCourses, state => {
     return {
       ...state,
-      courses: COURSES_MOCK
+      loading: true
+    }
+  }),
+  on(CoursesActions.loadCourseSuccess, (state, action) => {
+    return {
+      ...state,
+      courses: action.data,
+      loading: false
+    }
+  }),
+  on(CoursesActions.loadCourseFailure, (state, action) => {
+    return {
+      ...state,
+      error: action.error,
+      loading: false
     }
   }),
   on(CoursesActions.loadCourseDetail, (state, actions) => {
     return {
-      ...state, 
+      ...state,
       courseDetail: COURSES_MOCK.find((c) => c.id == actions.categoryId) || null,
     }
   })
@@ -36,4 +54,3 @@ export const coursesFeature = createFeature({
   name: coursesFeatureKey,
   reducer,
 });
-

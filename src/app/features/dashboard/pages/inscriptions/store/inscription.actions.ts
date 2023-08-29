@@ -10,6 +10,7 @@ export const InscriptionActions = createActionGroup({
     'Load Inscriptions': emptyProps(),
     'Load Inscriptions Success': props<{ data: InscriptionWithCourseAndStudent[] }>(),
     'Load Inscriptions Failure': props<{ error: HttpErrorResponse }>(),
+
     'Load Student Options': emptyProps(),
     'Load Student Options Success': props<{ data: Student[] }>(),
     'Load Student Options Failure': props<{ error: HttpErrorResponse }>(),

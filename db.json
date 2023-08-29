@@ -51,6 +51,41 @@
       "description": "Diseno UX - UI: Full-Time Intensivo",
       "credits": 40,
       "price": 300
+    },
+    {
+      "name": "Nichole Casey",
+      "description": "Qui sint repudiandae",
+      "credits": "Fugiat commodo sit a",
+      "price": "546",
+      "id": 5
+    },
+    {
+      "name": "Inez Medina",
+      "description": "Adipisci obcaecati s",
+      "credits": "Voluptas assumenda t",
+      "price": "433",
+      "id": 6
+    },
+    {
+      "name": "Otto Moody",
+      "description": "Non nesciunt dolore",
+      "credits": "Unde pariatur Cum s",
+      "price": "896",
+      "id": 7
+    },
+    {
+      "name": "Darryl Delacruz",
+      "description": "Facilis et voluptate",
+      "credits": "Illum ea id tempor",
+      "price": "691",
+      "id": 8
+    },
+    {
+      "name": "Nevada Velez",
+      "description": "Consequuntur alias v",
+      "credits": "Ex cupidatat corrupt",
+      "price": "41",
+      "id": 9
     }
   ],
   "goals": [],
@@ -77,17 +112,6 @@
       "categoryId": 2
     },
     {
-      "dni": "Et omnis doloremque ",
-      "name": "Lunea Bates",
-      "surname": "Floyd",
-      "email": "mikaluhux@mailinator.com",
-      "course": "React",
-      "password": "Pa$$w0rd!",
-      "token": "12408aaaaaohfaoihasf",
-      "id": 3,
-      "categoryId": 4
-    },
-    {
       "dni": "Animi laborum totam",
       "name": "Kenneth Rivera",
       "surname": "Butler",
@@ -97,43 +121,12 @@
       "token": "124080lknaslfknfaoihasf",
       "id": 4,
       "categoryId": 3
-    },
-    {
-      "dni": "101010101010",
-      "name": "carlos sanchez",
-      "surname": "PEREZ perez",
-      "email": "hola@soy.com",
-      "course": "React",
-      "password": "Blackparde1029",
-      "id": 6,
-      "categoryId": 1
-    },
-    {
-      "dni": "Accusantium elit im",
-      "name": "Myra Bryant",
-      "surname": "Frank",
-      "email": "vanipexo@mailinator.com",
-      "course": "UX",
-      "password": "Pa$$w0rd!asdasd",
-      "token": "7HfB0Kqq8t8F2Ft0p2kr",
-      "id": 7,
-      "categoryId": 1
     }
   ],
   "inscriptions": [
     {
       "id": 1,
       "studentId": 1,
-      "courseId": 1
-    },
-    {
-      "id": 2,
-      "studentId": 6,
-      "courseId": 1
-    },
-    {
-      "id": 3,
-      "studentId": 7,
       "courseId": 1
     },
     {
@@ -147,54 +140,19 @@
       "courseId": 3
     },
     {
-      "id": 6,
-      "studentId": 3,
-      "courseId": 4
+      "studentId": 2,
+      "courseId": 2,
+      "id": 6
     },
     {
       "studentId": 1,
-      "courseId": 1,
+      "courseId": 2,
       "id": 7
     },
     {
-      "studentId": 7,
-      "courseId": 2,
+      "studentId": 4,
+      "courseId": 5,
       "id": 8
-    },
-    {
-      "studentId": 7,
-      "courseId": 2,
-      "id": 9
-    },
-    {
-      "studentId": 7,
-      "courseId": 2,
-      "id": 10
-    },
-    {
-      "studentId": 4,
-      "courseId": 4,
-      "id": 11
-    },
-    {
-      "studentId": 4,
-      "courseId": 4,
-      "id": 12
-    },
-    {
-      "studentId": 4,
-      "courseId": 4,
-      "id": 13
-    },
-    {
-      "studentId": 4,
-      "courseId": 4,
-      "id": 14
-    },
-    {
-      "studentId": 1,
-      "courseId": 1,
-      "id": 15
     }
   ]
 }

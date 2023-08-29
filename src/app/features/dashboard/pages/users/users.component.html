@@ -1,14 +1,26 @@
+<h2 appLetragrande>Usuarios</h2>
+
 <div class="buttons">
-    <div class="mb-2">
-        <button [disabled]="!(isAdmin$ | async)" (click)="onCreateUser()" mat-flat-button color="primary" type="button">Add
-            <mat-icon>add</mat-icon>
-        </button>
-    </div>
+  <div class="mb-2">
+    <button
+      [disabled]="!(isAdmin$ | async)"
+      (click)="onCreateUser()"
+      mat-flat-button
+      color="primary"
+      type="button"
+    >
+      Add
+      <mat-icon>add</mat-icon>
+    </button>
+  </div>
 </div>
 
 <div *ngIf="isLoading$ | async; else notLoading">Cargando</div>
 
 <ng-template #notLoading>
-    <app-users-table [dataSource]="(users | async) || []" (deleteUser)="onDeleteUser($event)"
-    (editUser)="editUser($event)"></app-users-table>
+  <app-users-table
+    [dataSource]="(users | async) || []"
+    (deleteUser)="onDeleteUser($event)"
+    (editUser)="editUser($event)"
+  ></app-users-table>
 </ng-template>

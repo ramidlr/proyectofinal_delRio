@@ -74,31 +74,31 @@ export class InscriptionEffects {
 
       ofType(InscriptionActions.createInscriptionSuccess),
       map(() => this.store.dispatch(InscriptionActions.loadInscriptions()))
-      
+
     );
-  }, {dispatch:false});
+  }, { dispatch: false });
 
 
   constructor(private actions$: Actions,
     private httpClient: HttpClient,
     private store: Store
-    ) {}
+  ) { }
 
-    private getInscriptionsFromDB(): Observable<InscriptionWithCourseAndStudent[]> {
-      return this.httpClient.get<InscriptionWithCourseAndStudent[]>(environment.baseApiUrl + '/inscriptions?_expand=student&_expand=course')
-    }
+  private getInscriptionsFromDB(): Observable<InscriptionWithCourseAndStudent[]> {
+    return this.httpClient.get<InscriptionWithCourseAndStudent[]>(environment.baseApiUrl + '/inscriptions?_expand=student&_expand=course')
+  }
 
-    private getStudentOptions(): Observable<Student[]> {
-      return this.httpClient.get<Student[]>(environment.baseApiUrl + '/students')
-    }
+  private getStudentOptions(): Observable<Student[]> {
+    return this.httpClient.get<Student[]>(environment.baseApiUrl + '/students')
+  }
 
-    private getCourseOptions(): Observable<Course[]> {
-      return this.httpClient.get<Course[]>(environment.baseApiUrl + '/courses')
-    }
+  private getCourseOptions(): Observable<Course[]> {
+    return this.httpClient.get<Course[]>(environment.baseApiUrl + '/courses')
+  }
 
-    private createInscription(payload: CreateInscriptionPayload): Observable<Inscription> {
-      return this.httpClient.post<Inscription>(environment.baseApiUrl + '/inscriptions', payload)
-    }
+  private createInscription(payload: CreateInscriptionPayload): Observable<Inscription> {
+    return this.httpClient.post<Inscription>(environment.baseApiUrl + '/inscriptions', payload)
+  }
 
 
 }

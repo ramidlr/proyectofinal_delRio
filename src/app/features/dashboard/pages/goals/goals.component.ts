@@ -45,9 +45,11 @@ export class GoalsComponent {
   }
 
   deleteGoal(goalToDelete: Goal): void {
-    if (confirm('Estas seguro que deseas eliminar la clase?'))
+    if (confirm('Estas seguro que deseas eliminar la clase?')) {
+      this.goalsService.deleteGoal(goalToDelete.id);
       this.notifier.showSuccess('Clase eliminada correctamente');
-    this.goalsService.deleteGoal(goalToDelete.id);
+
+    }
   }
 
   editGoal(goalToEdit: Goal): void {

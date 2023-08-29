@@ -60,9 +60,10 @@ export class UsersComponent {
   }
 
   onDeleteUser(userToDelete: User): void {
-    if (confirm('Estas seguro que deseas eliminar al usuario?'))
+    if (confirm('Estas seguro que deseas eliminar al usuario?')) {
+      this.userService.deleteUser(userToDelete.id);
       this.notifier.showSuccess('Usuario eliminado correctamente');
-    this.userService.deleteUser(userToDelete.id);
+    }
   }
 
   editUser(userToEdit: User): void {

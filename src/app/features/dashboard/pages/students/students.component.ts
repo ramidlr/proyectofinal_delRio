@@ -58,9 +58,13 @@ export class StudentsComponent {
   }
 
   onDeleteStudent(studentToDelete: Student): void {
-    if (confirm('Estas seguro que deseas eliminar al alumno?'))
+    if (confirm('Estas seguro que deseas eliminar al alumno?')) {
+      this.studentService.deleteStudent(studentToDelete.id);
       this.notifier.showSuccess('Alumno eliminado correctamente');
-    this.studentService.deleteStudent(studentToDelete.id);
+
+
+    }
+
   }
 
   editStudent(studentToEdit: Student): void {

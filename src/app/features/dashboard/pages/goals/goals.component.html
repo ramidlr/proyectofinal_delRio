@@ -1,9 +1,21 @@
+<h2 appLetragrande>Clases</h2>
+
 <div class="buttons">
-    <div class="mb-2">
-        <button (click)="onCreateGoal()" mat-flat-button color="primary" type="button">Add
-            <mat-icon>add</mat-icon>
-        </button>
-    </div>
+  <div class="mb-2">
+    <button
+      (click)="onCreateGoal()"
+      mat-flat-button
+      color="primary"
+      type="button"
+    >
+      Add
+      <mat-icon>add</mat-icon>
+    </button>
+  </div>
 </div>
 
-<app-goals-table [dataSource]="(goals | async) || []" (deleteGoal)="deleteGoal($event)" (editGoal)="editGoal($event)"></app-goals-table>
+<app-goals-table
+  [dataSource]="(goals | async) || []"
+  (deleteGoal)="deleteGoal($event)"
+  (editGoal)="editGoal($event)"
+></app-goals-table>
