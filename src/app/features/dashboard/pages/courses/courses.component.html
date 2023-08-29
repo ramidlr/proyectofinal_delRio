@@ -52,10 +52,20 @@
       <button [routerLink]="course.id" mat-icon-button color="primary">
         <mat-icon>visibility</mat-icon>
       </button>
-      <button [disabled]="!(isAdmin$ | async)" mat-icon-button color="primary">
+      <button
+        (click)="editCourse(course)"
+        [disabled]="!(isAdmin$ | async)"
+        mat-icon-button
+        color="primary"
+      >
         <mat-icon>edit</mat-icon>
       </button>
-      <button [disabled]="!(isAdmin$ | async)" mat-icon-button color="warn">
+      <button
+        (click)="deleteCourse(course)"
+        [disabled]="!(isAdmin$ | async)"
+        mat-icon-button
+        color="warn"
+      >
         <mat-icon>delete</mat-icon>
       </button>
     </td>
@@ -63,15 +73,4 @@
 
   <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
   <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
-
-  <!--      
-            <button (click)="editCourse.emit(course)" mat-icon-button color="primary">
-                <mat-icon color="primary">edit</mat-icon>
-            </button>
-            <button (click)="deleteCourse.emit(course)" mat-icon-button color="warn">
-                <mat-icon>delete</mat-icon>
-            </button> -->
 </table>
-
-<!-- <app-courses-table [dataSource]="(courses$ | async) || []" (deleteCourse)="deleteCourse($event)" (editCourse)="editCourse($event)"></app-courses-table> -->
-<!-- <app-courses-table [dataSource]="(courses$ | async) || []"></app-courses-table>  -->

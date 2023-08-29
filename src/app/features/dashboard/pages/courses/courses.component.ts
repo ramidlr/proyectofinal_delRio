@@ -7,6 +7,7 @@ import { CoursesActions } from './store/courses.actions';
 import { selectIsAdmin } from 'src/app/store/auth/auth.selector';
 import { MatDialog } from '@angular/material/dialog';
 import { CourseFormDialogComponent } from './components/course-form-dialog/course-form-dialog.component';
+import { NotifierService } from 'src/app/core/services/notifier.service';
 
 @Component({
   selector: 'app-courses',
@@ -21,16 +22,22 @@ export class CoursesComponent implements OnInit {
 
   constructor(private store: Store,
     private matDialog: MatDialog,
-    // private notifier: NotifierService
+    private notifier: NotifierService
   ) {
-    // this.courseService.loadCourses();
-    // this.courses = this.courseService.getCourses();
+
     this.courses$ = this.store.select(selectCoursesArray);
     this.isAdmin$ = this.store.select(selectIsAdmin)
   }
 
   onCreateCourse(): void {
-    this.matDialog.open(CourseFormDialogComponent)
+    const dialogRef = this.matDialog.open(CourseFormDialogComponent)
+    dialogRef.afterClosed().subscribe({
+      next: (newCourse) => {
+        if (newCourse) {
+          this.store.dispatch(CoursesActions.createCourse({ payload: newCourse.getRawValue() }))
+        }
+      },
+    })
   }
 
   ngOnInit(): void {
@@ -38,44 +45,32 @@ export class CoursesComponent implements OnInit {
   }
 
 
+  editCourse(courseToEdit: Course): void {
+    const dialogRef = this.matDialog.open(CourseFormDialogComponent, {
+      data: courseToEdit,
+    });
+
+    dialogRef.afterClosed().subscribe({
+      next: (courseUpdated) => {
+        if (courseUpdated) {
+          this.store.dispatch(CoursesActions.editCourse({ payload: { ...courseUpdated.getRawValue(), id: courseToEdit.id } }))
+          this.notifier.showSuccess('Curso editado correctamente');
+        }
+      },
+    })
+  }
+
+  deleteCourse(courseToDelete: Course): void {
+    if (confirm('Estas seguro que deseas eliminar el curso?')) {
+      this.store.dispatch(CoursesActions.deleteCourse({ payload: courseToDelete }))
+      this.notifier.showSuccess('Curso eliminado correctamente');
+    }
+  }
+
 }
-// onCreateCourse(): void {
-//   const dialogRef = this.matDialog.open(CourseFormDialogComponent);
-//   dialogRef.afterClosed().subscribe({
-//     next: (v) => {
-//       if (v) {
-//         this.notifier.showSuccess('Curso creado correctamente');
-//         this.courseService.createCourse({
-//           id: v.id,
-//           name: v.name,
-//           description: v.description,
-//           credits: v.credits,
-//           price: v.price,
-//         });
-//       }
-//     },
-//   });
-// }
 
-// deleteCourse(courseToDelete: Course): void {
-//   if (confirm('Estas seguro que deseas eliminar el curso?'))
-//     this.notifier.showSuccess('Curso eliminado correctamente');
-//   this.courseService.deleteCourse(courseToDelete.id);
-// }
 
-// editCourse(courseToEdit: Course): void {
-//   const dialogRef = this.matDialog.open(CourseFormDialogComponent, {
-//     data: courseToEdit,
-//   });
-//   dialogRef.afterClosed().subscribe({
-//     next: (courseUpdated) => {
-//       if (courseUpdated) {
-//         this.courseService.editCourse(courseToEdit.id, courseUpdated);
-//         this.notifier.showSuccess('Has editado el curso correctamente');
-//       }
-//     },
-//   });
-// }
+
 
 
 

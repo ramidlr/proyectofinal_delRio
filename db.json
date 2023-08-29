@@ -25,67 +25,25 @@
   ],
   "courses": [
     {
-      "id": 1,
       "name": "Angular",
       "description": "Angular de cero a experto: Online On-Demand",
       "credits": 40,
-      "price": 120
+      "price": 120,
+      "id": 11
     },
     {
-      "id": 2,
-      "name": "React",
-      "description": "React Experto: En Vivo",
-      "credits": 43,
-      "price": 250
-    },
-    {
-      "id": 3,
-      "name": "Full-Stack Developer 2023",
-      "description": "Curso completo de Angular, React, HTML, CSS y proyecto final en empresa",
-      "credits": 60,
-      "price": 1900
-    },
-    {
-      "id": 4,
-      "name": "UX-UI",
-      "description": "Diseno UX - UI: Full-Time Intensivo",
+      "name": "Angular",
+      "description": "Angular de cero a experto: Online On-Demand",
       "credits": 40,
-      "price": 300
+      "price": "1201",
+      "id": 12
     },
     {
-      "name": "Nichole Casey",
-      "description": "Qui sint repudiandae",
-      "credits": "Fugiat commodo sit a",
-      "price": "546",
-      "id": 5
-    },
-    {
-      "name": "Inez Medina",
-      "description": "Adipisci obcaecati s",
-      "credits": "Voluptas assumenda t",
-      "price": "433",
-      "id": 6
-    },
-    {
-      "name": "Otto Moody",
-      "description": "Non nesciunt dolore",
-      "credits": "Unde pariatur Cum s",
-      "price": "896",
-      "id": 7
-    },
-    {
-      "name": "Darryl Delacruz",
-      "description": "Facilis et voluptate",
-      "credits": "Illum ea id tempor",
-      "price": "691",
-      "id": 8
-    },
-    {
-      "name": "Nevada Velez",
-      "description": "Consequuntur alias v",
-      "credits": "Ex cupidatat corrupt",
-      "price": "41",
-      "id": 9
+      "name": "Wing Fuller",
+      "description": "Illo sint dolor omn",
+      "credits": "Tenetur nihil volupt",
+      "price": "205",
+      "id": 13
     }
   ],
   "goals": [],
@@ -97,8 +55,7 @@
       "email": "mail@mail.com",
       "course": "CS50",
       "password": "12345678",
-      "id": 1,
-      "categoryId": 1
+      "id": 1
     },
     {
       "dni": "Sapiente numquam del",
@@ -121,38 +78,16 @@
       "token": "124080lknaslfknfaoihasf",
       "id": 4,
       "categoryId": 3
+    },
+    {
+      "dni": "Perspiciatis offici",
+      "name": "quemby dillard",
+      "surname": "LYNCH",
+      "email": "vafi@mailinator.com",
+      "course": "CS50",
+      "password": "Pa$$w0rd!",
+      "id": 5
     }
   ],
-  "inscriptions": [
-    {
-      "id": 1,
-      "studentId": 1,
-      "courseId": 1
-    },
-    {
-      "id": 4,
-      "studentId": 2,
-      "courseId": 2
-    },
-    {
-      "id": 5,
-      "studentId": 4,
-      "courseId": 3
-    },
-    {
-      "studentId": 2,
-      "courseId": 2,
-      "id": 6
-    },
-    {
-      "studentId": 1,
-      "courseId": 2,
-      "id": 7
-    },
-    {
-      "studentId": 4,
-      "courseId": 5,
-      "id": 8
-    }
-  ]
+  "inscriptions": []
 }

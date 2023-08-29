@@ -26,10 +26,6 @@ import { adminGuard } from "src/app/core/guards/admin.guard";
                 loadChildren: () => import('./pages/goals/goals.module').then((m) => m.GoalsModule),
             },
             {
-                path: 'counter',
-                loadChildren: () => import('./pages/counter/counter.module').then((m) => m.CounterModule),
-            },
-            {
                 path: 'alumnos',
                 loadChildren: () => import('./pages/students/students.module').then((m) => m.StudentsModule),
             },

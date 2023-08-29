@@ -46,8 +46,53 @@ export const reducer = createReducer(
       ...state,
       courseDetail: COURSES_MOCK.find((c) => c.id == actions.categoryId) || null,
     }
-  })
+  }),
+  on(CoursesActions.editCourse, (state, action) => {
+    return {
+      ...state,
+      loading: true
+    }
+  }),
+  on(CoursesActions.editCourseSuccess, (state, action) => {
+    return {
+      ...state,
+      courses: state.courses.map(((u) =>
+        u.id === action.data.id ? { ...u, ...action.data } : u
+      )),
+      loading: false
+    }
+  }),
 
+  on(CoursesActions.editCourseFailure, (state, action) => {
+    return {
+      ...state,
+      error: action.error,
+      loading: false
+    }
+  }),
+  on(CoursesActions.deleteCourse, (state, action) => {
+    return {
+      ...state,
+      loading: true
+    }
+  }),
+  on(CoursesActions.deleteCourseSuccess, (state, action) => {
+    console.log(action)
+    return {
+      ...state,
+      courses:
+        state.courses.filter(((u) =>
+          u.id !== action.data.id)),
+      loading: false
+    }
+  }),
+  on(CoursesActions.deleteCourseFailure, (state, action) => {
+    return {
+      ...state,
+      error: action.error,
+      loading: false
+    }
+  })
 );
 
 export const coursesFeature = createFeature({

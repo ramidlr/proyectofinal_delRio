@@ -54,8 +54,8 @@ export class CourseFormDialogComponent {
             this.courseForm.markAllAsTouched()
         }
         else {
-            this.store.dispatch(CoursesActions.createCourse({ payload: this.courseForm.getRawValue() }))
-            this.dialogRef.close()
+            // this.store.dispatch(CoursesActions.createCourse({ payload: this.courseForm.getRawValue() }))
+            this.dialogRef.close(this.courseForm)
         }
     }
 }
