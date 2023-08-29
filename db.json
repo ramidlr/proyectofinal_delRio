@@ -25,25 +25,32 @@
   ],
   "courses": [
     {
+      "id": 1,
       "name": "Angular",
       "description": "Angular de cero a experto: Online On-Demand",
       "credits": 40,
-      "price": 120,
-      "id": 11
+      "price": 120
     },
     {
-      "name": "Angular",
-      "description": "Angular de cero a experto: Online On-Demand",
+      "id": 2,
+      "name": "React",
+      "description": "React Experto: En Vivo",
+      "credits": 43,
+      "price": 250
+    },
+    {
+      "id": 3,
+      "name": "Full-Stack Developer 2023",
+      "description": "Curso completo de Angular, React, HTML, CSS y proyecto final en empresa",
+      "credits": 60,
+      "price": 1900
+    },
+    {
+      "id": 4,
+      "name": "UX-UI",
+      "description": "Diseno UX - UI: Full-Time Intensivo",
       "credits": 40,
-      "price": "1201",
-      "id": 12
-    },
-    {
-      "name": "Wing Fuller",
-      "description": "Illo sint dolor omn",
-      "credits": "Tenetur nihil volupt",
-      "price": "205",
-      "id": 13
+      "price": 300
     }
   ],
   "goals": [],
@@ -55,7 +62,8 @@
       "email": "mail@mail.com",
       "course": "CS50",
       "password": "12345678",
-      "id": 1
+      "id": 1,
+      "categoryId": 1
     },
     {
       "dni": "Sapiente numquam del",
@@ -69,6 +77,17 @@
       "categoryId": 2
     },
     {
+      "dni": "Et omnis doloremque ",
+      "name": "Lunea Bates",
+      "surname": "Floyd",
+      "email": "mikaluhux@mailinator.com",
+      "course": "React",
+      "password": "Pa$$w0rd!",
+      "token": "12408aaaaaohfaoihasf",
+      "id": 3,
+      "categoryId": 4
+    },
+    {
       "dni": "Animi laborum totam",
       "name": "Kenneth Rivera",
       "surname": "Butler",
@@ -80,14 +99,102 @@
       "categoryId": 3
     },
     {
-      "dni": "Perspiciatis offici",
-      "name": "quemby dillard",
-      "surname": "LYNCH",
-      "email": "vafi@mailinator.com",
-      "course": "CS50",
-      "password": "Pa$$w0rd!",
-      "id": 5
+      "dni": "101010101010",
+      "name": "carlos sanchez",
+      "surname": "PEREZ perez",
+      "email": "hola@soy.com",
+      "course": "React",
+      "password": "Blackparde1029",
+      "id": 6,
+      "categoryId": 1
+    },
+    {
+      "dni": "Accusantium elit im",
+      "name": "Myra Bryant",
+      "surname": "Frank",
+      "email": "vanipexo@mailinator.com",
+      "course": "UX",
+      "password": "Pa$$w0rd!asdasd",
+      "token": "7HfB0Kqq8t8F2Ft0p2kr",
+      "id": 7,
+      "categoryId": 1
     }
   ],
-  "inscriptions": []
+  "inscriptions": [
+    {
+      "id": 1,
+      "studentId": 1,
+      "courseId": 1
+    },
+    {
+      "id": 2,
+      "studentId": 6,
+      "courseId": 1
+    },
+    {
+      "id": 3,
+      "studentId": 7,
+      "courseId": 1
+    },
+    {
+      "id": 4,
+      "studentId": 2,
+      "courseId": 2
+    },
+    {
+      "id": 5,
+      "studentId": 4,
+      "courseId": 3
+    },
+    {
+      "id": 6,
+      "studentId": 3,
+      "courseId": 4
+    },
+    {
+      "studentId": 1,
+      "courseId": 1,
+      "id": 7
+    },
+    {
+      "studentId": 7,
+      "courseId": 2,
+      "id": 8
+    },
+    {
+      "studentId": 7,
+      "courseId": 2,
+      "id": 9
+    },
+    {
+      "studentId": 7,
+      "courseId": 2,
+      "id": 10
+    },
+    {
+      "studentId": 4,
+      "courseId": 4,
+      "id": 11
+    },
+    {
+      "studentId": 4,
+      "courseId": 4,
+      "id": 12
+    },
+    {
+      "studentId": 4,
+      "courseId": 4,
+      "id": 13
+    },
+    {
+      "studentId": 4,
+      "courseId": 4,
+      "id": 14
+    },
+    {
+      "studentId": 1,
+      "courseId": 1,
+      "id": 15
+    }
+  ]
 }
